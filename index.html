@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenUp Healthcare Leadership Program</title>
+    <title>OpenUp Healthcare Leadership Program | Dr. Niiraj K. Bafna</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script>
@@ -11,10 +11,10 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#005b96', // Deep Blue
-                        secondary: '#03a9f4', // Vibrant Teal/Light Blue
-                        dark: '#0f172a',
-                        light: '#f8fafc'
+                        primary: '#005b96', // Deep Professional Blue
+                        secondary: '#03a9f4', // Vibrant Tech Teal
+                        darkNavy: '#0b1329',
+                        slateLight: '#f8fafc'
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -26,502 +26,958 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         body { font-family: 'Inter', sans-serif; }
-        .fade-in { animation: fadeIn 1s ease-in; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .glass-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .glass-morphism {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .dark-glass {
+            background: rgba(11, 19, 41, 0.85);
+            backdrop-filter: blur(12px);
+        }
+        .text-glow {
+            text-shadow: 0 0 15px rgba(3, 169, 244, 0.4);
+        }
+        /* Custom scrollbar for premium touch */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-secondary selection:text-white">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm">
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
-                <div class="flex-shrink-0 flex items-center gap-2">
-                    <div class="w-10 h-10 bg-primary text-white rounded-lg flex items-center justify-center font-bold text-xl shadow-lg">OU</div>
-                    <span class="font-bold text-2xl text-primary tracking-tight">OpenUp</span>
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2.5">
+                    <div class="w-11 h-11 bg-primary text-white rounded-xl flex items-center justify-center font-extrabold text-xl shadow-md transform hover:rotate-6 transition-transform">
+                        OU
+                    </div>
+                    <div>
+                        <span class="font-extrabold text-2xl text-primary tracking-tight block leading-none">OpenUp</span>
+                        <span class="text-[10px] text-secondary font-bold tracking-widest uppercase">Leadership Hub</span>
+                    </div>
                 </div>
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#about" class="text-slate-600 hover:text-primary font-medium transition-colors">About</a>
-                    <a href="#program" class="text-slate-600 hover:text-primary font-medium transition-colors">Program</a>
-                    <a href="#ecosystem" class="text-slate-600 hover:text-primary font-medium transition-colors">Ecosystem</a>
-                    <a href="#benefits" class="text-slate-600 hover:text-primary font-medium transition-colors">Benefits</a>
-                    <a href="#apply" class="bg-primary hover:bg-blue-800 text-white px-6 py-2.5 rounded-full font-semibold transition-all transform hover:scale-105 shadow-md">Apply Now</a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-7 items-center">
+                    <a href="#about" class="text-slate-600 hover:text-primary font-semibold transition-colors">About</a>
+                    <a href="#program" class="text-slate-600 hover:text-primary font-semibold transition-colors">Curriculum</a>
+                    <a href="#ecosystem" class="text-slate-600 hover:text-primary font-semibold transition-colors">Ecosystem</a>
+                    <a href="#founder" class="text-slate-600 hover:text-primary font-semibold transition-colors flex items-center gap-1">
+                        <span class="w-2 h-2 bg-emerald-500 rounded-full inline-block animate-pulse"></span> Meet Dr. Niiraj
+                    </a>
+                    <a href="#benefits" class="text-slate-600 hover:text-primary font-semibold transition-colors">Benefits</a>
+                    <a href="#apply" class="bg-primary hover:bg-blue-800 text-white px-6 py-2.5 rounded-full font-bold transition-all transform hover:scale-105 shadow-md">Apply Now</a>
                 </div>
-                <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center">
-                    <button class="text-slate-600 hover:text-primary focus:outline-none p-2">
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-primary focus:outline-none p-2" aria-label="Toggle Menu">
                         <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
             </div>
         </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 px-4 pt-4 pb-6 space-y-3 shadow-lg">
+            <a href="#about" class="block text-slate-700 hover:text-primary font-semibold py-2">About Program</a>
+            <a href="#program" class="block text-slate-700 hover:text-primary font-semibold py-2">Curriculum</a>
+            <a href="#ecosystem" class="block text-slate-700 hover:text-primary font-semibold py-2">3-Stage Ecosystem</a>
+            <a href="#founder" class="block text-slate-700 hover:text-primary font-semibold py-2">Meet the Founder</a>
+            <a href="#benefits" class="block text-slate-700 hover:text-primary font-semibold py-2">Colleges & Students</a>
+            <a href="#apply" class="block bg-primary text-white text-center py-3 rounded-xl font-bold">Apply Now</a>
+        </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-gradient-to-br from-slate-900 via-primary to-blue-900 text-white">
-        <!-- Abstract Shapes -->
-        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-            <div class="absolute -top-24 -left-24 w-96 h-96 bg-secondary/20 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-10 right-10 w-[30rem] h-[30rem] bg-blue-500/20 rounded-full blur-3xl"></div>
-        </div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center fade-in">
-            <span class="inline-block py-1 px-3 rounded-full bg-secondary/20 text-secondary border border-secondary/30 font-semibold text-sm mb-6">For Pharmacy Students</span>
-            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
-                Healthcare Leadership <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-blue-200">Program</span>
-            </h1>
-            <p class="mt-4 text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto font-light leading-relaxed mb-10">
-                Building the Next Generation of Industry-Ready Healthcare Professionals. An Experiential Leadership & Innovation Journey.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#apply" class="bg-secondary hover:bg-sky-400 text-white px-8 py-4 rounded-full font-bold text-lg transition-all transform hover:-translate-y-1 shadow-[0_0_20px_rgba(3,169,244,0.4)]">Apply for Next Cohort</a>
-                <a href="#program" class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-bold text-lg transition-all">Explore Curriculum</a>
-            </div>
-            
-            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto border-t border-white/10 pt-10">
-                <div class="flex flex-col items-center">
-                    <span class="text-4xl font-black text-secondary">6 Weeks</span>
-                    <span class="text-blue-200 mt-2">Duration</span>
+    <section class="relative pt-32 pb-24 lg:pt-44 lg:pb-36 overflow-hidden bg-gradient-to-br from-darkNavy via-primary to-blue-900 text-white">
+        <!-- Abstract Tech Circles background -->
+        <div class="absolute inset-0 opacity-15 mix-blend-overlay bg-[radial-gradient(#03a9f4_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-500/10 rounded-full blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Text Left -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-secondary/15 text-secondary border border-secondary/30 font-bold text-xs tracking-wider uppercase">
+                        <i class="fas fa-bolt text-[10px]"></i> Experiential Innovation Program
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
+                        Building the Next Generation of <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary via-sky-300 to-white">Industry-Ready</span> Professionals
+                    </h1>
+                    <p class="text-lg md:text-xl text-blue-100/90 font-light max-w-2xl leading-relaxed">
+                        An Experiential Leadership & Innovation Program designed specifically for Pharmacy students. Step out of rote learning and step into real-world capability.
+                    </p>
+
+                    <!-- Key highlights points -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-secondary"><i class="fas fa-calendar-alt"></i></span>
+                            <span class="text-sm font-semibold text-blue-50">6 Weeks | 12 Practical Sessions</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-secondary"><i class="fas fa-sitemap"></i></span>
+                            <span class="text-sm font-semibold text-blue-50">3-Stage Career Ecosystem</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <a href="#apply" class="bg-secondary hover:bg-sky-400 text-white px-8 py-4 rounded-full font-bold text-center transition-all transform hover:-translate-y-1 shadow-[0_4px_20px_rgba(3,169,244,0.4)]">
+                            Apply for Next Cohort
+                        </a>
+                        <a href="#founder" class="bg-white/10 hover:bg-white/25 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-bold text-center transition-all">
+                            Meet the Founder
+                        </a>
+                    </div>
                 </div>
-                <div class="flex flex-col items-center">
-                    <span class="text-4xl font-black text-secondary">12 Sessions</span>
-                    <span class="text-blue-200 mt-2">Intensive Learning</span>
+
+                <!-- Hero Image Right (Premium Card showcasing Program Pillars) -->
+                <div class="lg:col-span-5 relative">
+                    <div class="bg-slate-900/60 border border-white/15 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-md relative overflow-hidden">
+                        <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-secondary/15 rounded-full blur-2xl"></div>
+                        
+                        <h3 class="text-xl font-bold mb-6 text-white border-b border-white/10 pb-4 flex items-center gap-2">
+                            <i class="fas fa-rocket text-secondary"></i> core Program Pillars
+                        </h3>
+                        
+                        <div class="space-y-5">
+                            <div class="flex gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-secondary flex items-center justify-center flex-shrink-0"><i class="fas fa-brain"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-white">Design Thinking</h4>
+                                    <p class="text-xs text-blue-200">Empathy mapping, observation, and critical problem validation.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-secondary flex items-center justify-center flex-shrink-0"><i class="fas fa-briefcase"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-white">Industry Readiness</h4>
+                                    <p class="text-xs text-blue-200">Bridging the gap with actual expectations & real deliverables.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-secondary flex items-center justify-center flex-shrink-0"><i class="fas fa-users"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-white">Peer Network & Mentorship</h4>
+                                    <p class="text-xs text-blue-200">Building community-centric personal branding.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mini Badges -->
+                        <div class="mt-8 pt-6 border-t border-white/10 flex flex-wrap gap-2">
+                            <span class="text-[10px] bg-white/10 text-slate-200 px-2.5 py-1 rounded-md font-semibold">AI Productivity</span>
+                            <span class="text-[10px] bg-white/10 text-slate-200 px-2.5 py-1 rounded-md font-semibold">Market Research</span>
+                            <span class="text-[10px] bg-white/10 text-slate-200 px-2.5 py-1 rounded-md font-semibold">Pitching</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex flex-col items-center">
-                    <span class="text-4xl font-black text-secondary">3-Stage</span>
-                    <span class="text-blue-200 mt-2">Talent Ecosystem</span>
-                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- The Challenge & About -->
+    <section class="relative z-20 -mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-2xl shadow-xl border border-slate-100 p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div>
+                <span class="text-4xl md:text-5xl font-black text-primary block">50+</span>
+                <span class="text-xs md:text-sm text-slate-500 font-bold uppercase tracking-wider block mt-2">Workshops Conducted</span>
+            </div>
+            <div class="border-l border-slate-100">
+                <span class="text-4xl md:text-5xl font-black text-primary block">25+</span>
+                <span class="text-xs md:text-sm text-slate-500 font-bold uppercase tracking-wider block mt-2">Internships Facilitated</span>
+            </div>
+            <div class="border-l border-slate-100">
+                <span class="text-4xl md:text-5xl font-black text-primary block">9+ Yrs</span>
+                <span class="text-xs md:text-sm text-slate-500 font-bold uppercase tracking-wider block mt-2">Ecosystem Experience</span>
+            </div>
+            <div class="border-l border-slate-100">
+                <span class="text-4xl md:text-5xl font-black text-primary block">100%</span>
+                <span class="text-xs md:text-sm text-slate-500 font-bold uppercase tracking-wider block mt-2">Experiential Learning</span>
+            </div>
+        </div>
+    </section>
+
     <section id="about" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="text-sm font-bold text-primary tracking-widest uppercase mb-3">The Challenge</h2>
-                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight">Bridging the Gap Between Academia and Industry</h3>
-                    <p class="text-lg text-slate-600 mb-4 leading-relaxed">
-                        Today's pharmacy graduates possess strong academic knowledge, yet many lack exposure to industry expectations, practical problem-solving, communication skills, innovation thinking, and professional confidence.
-                    </p>
-                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                        The healthcare industry is evolving rapidly with digital health, AI, automation, patient-centric care, and multidisciplinary collaboration becoming essential. Colleges need structured programs that prepare students for these changing demands.
-                    </p>
-                    <div class="p-6 bg-blue-50 border-l-4 border-primary rounded-r-lg">
-                        <p class="text-primary font-semibold italic">"The OpenUp Healthcare Leadership Program bridges this exact gap."</p>
+                
+                <!-- Left: Illustration / Structured Pillars -->
+                <div class="space-y-6">
+                    <div class="w-16 h-16 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center text-3xl shadow-sm">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h2 class="text-xs font-bold text-red-500 tracking-widest uppercase">The Industry Gap</h2>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight">
+                        Why Traditional Academic Routes Fall Short
+                    </h3>
+                    
+                    <div class="space-y-4 text-slate-600">
+                        <p>
+                            Pharmacy graduates are brilliant at biochemistry, pharmacology, and drug formulations. However, they are rarely taught how the actual commercial or structural ecosystem works.
+                        </p>
+                        
+                        <!-- Mini bullet pointers -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                            <div class="flex items-start gap-2.5">
+                                <span class="text-red-500 mt-1"><i class="fas fa-times-circle"></i></span>
+                                <span class="text-sm font-semibold text-slate-700">Lack of design thinking frameworks</span>
+                            </div>
+                            <div class="flex items-start gap-2.5">
+                                <span class="text-red-500 mt-1"><i class="fas fa-times-circle"></i></span>
+                                <span class="text-sm font-semibold text-slate-700">No exposure to industry standards</span>
+                            </div>
+                            <div class="flex items-start gap-2.5">
+                                <span class="text-red-500 mt-1"><i class="fas fa-times-circle"></i></span>
+                                <span class="text-sm font-semibold text-slate-700">Underdeveloped pitching skills</span>
+                            </div>
+                            <div class="flex items-start gap-2.5">
+                                <span class="text-red-500 mt-1"><i class="fas fa-times-circle"></i></span>
+                                <span class="text-sm font-semibold text-slate-700">Limited AI tool integration</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-5 bg-amber-50/70 border-l-4 border-amber-500 rounded-r-xl">
+                        <p class="text-sm text-amber-800 font-medium leading-relaxed">
+                            <strong>Rapid Industry Evolution:</strong> Digital healthcare, patient-centric delivery networks, and automation now demand innovators, not just technical operators.
+                        </p>
                     </div>
                 </div>
-                <div class="glass-card p-8 rounded-2xl border border-slate-100 shadow-xl relative">
-                    <div class="absolute -top-4 -right-4 w-20 h-20 bg-secondary rounded-full opacity-20 blur-2xl"></div>
-                    <h2 class="text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                        <i class="fas fa-door-open text-primary"></i> About OpenUp
-                    </h2>
-                    <p class="text-slate-600 mb-4 leading-relaxed">
-                        OpenUp is an experiential learning initiative that develops students beyond the classroom by combining <span class="font-semibold text-slate-800">innovation, design thinking, communication, leadership, AI, and industry exposure</span> into one structured learning journey.
-                    </p>
+
+                <!-- Right: Solution Framework Card -->
+                <div class="bg-slate-50 border border-slate-100 rounded-3xl p-8 shadow-sm">
+                    <div class="w-16 h-16 bg-blue-50 text-primary rounded-2xl flex items-center justify-center text-3xl shadow-sm mb-6">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h2 class="text-xs font-bold text-primary tracking-widest uppercase mb-1">Our Solution</h2>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Experiential Beyond the Classroom</h3>
                     <p class="text-slate-600 mb-6 leading-relaxed">
-                        Unlike traditional workshops, OpenUp enables students to work on real healthcare challenges while building a professional portfolio and preparing for future careers.
+                        OpenUp is built exactly to remedy these gaps. We combine design thinking, collaborative structures, and professional presentation skills into a streamlined roadmap that creates highly competent, hireable innovators.
                     </p>
-                    <div class="flex items-center gap-4 p-4 bg-slate-50 rounded-xl">
-                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-secondary shadow-sm text-xl">
-                            <i class="fas fa-lightbulb"></i>
+
+                    <div class="space-y-4">
+                        <div class="flex gap-4 items-center p-3.5 bg-white rounded-xl border border-slate-100 shadow-sm">
+                            <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-xs"><i class="fas fa-check"></i></span>
+                            <span class="text-sm font-bold text-slate-800">Learn directly by executing a real innovation project</span>
+                        </div>
+                        <div class="flex gap-4 items-center p-3.5 bg-white rounded-xl border border-slate-100 shadow-sm">
+                            <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-xs"><i class="fas fa-check"></i></span>
+                            <span class="text-sm font-bold text-slate-800">Step-by-step masterclasses facilitated by industry veterans</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="founder" class="py-24 bg-gradient-to-br from-slate-900 to-slate-950 text-white relative">
+        <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold text-secondary tracking-widest uppercase block mb-2">The Visionary Behind OpenUp</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">Meet Your Program Founder & Lead Mentor</h2>
+                <p class="text-slate-400">Repositioning student development from mere academic training to modern ecosystem-driven mastery.</p>
+            </div>
+
+            <!-- Profile Core Grid -->
+            <div class="grid lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Left: Profile Intro Card -->
+                <div class="lg:col-span-5 bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-full blur-2xl"></div>
+                    
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-tr from-primary to-secondary rounded-2xl flex items-center justify-center text-white text-3xl font-black shadow-lg">
+                            NB
                         </div>
                         <div>
-                            <h4 class="font-bold text-slate-900">Learning by Doing</h4>
-                            <p class="text-sm text-slate-500">Practical experience over theory</p>
+                            <h3 class="text-2xl font-extrabold text-white">Dr. Niiraj K. Bafna</h3>
+                            <p class="text-xs text-secondary font-bold uppercase tracking-widest">Pune, Maharashtra</p>
+                            <p class="text-sm text-slate-300 mt-1">Skill & Innovation Catalyst</p>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Program Highlights (Features) -->
-    <section class="py-20 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-sm font-bold text-primary tracking-widest uppercase mb-3">Features</h2>
-                <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Program Highlights</h3>
-                <p class="text-lg text-slate-600">A comprehensive curriculum designed to transform potential into professional excellence.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Highlight Cards -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition-all hover:-translate-y-1">
-                    <i class="fas fa-calendar-alt text-3xl text-secondary mb-4"></i>
-                    <h4 class="text-xl font-bold text-slate-900 mb-2">6-Week Journey</h4>
-                    <p class="text-slate-600 text-sm">Intensive and structured experiential learning.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition-all hover:-translate-y-1">
-                    <i class="fas fa-brain text-3xl text-secondary mb-4"></i>
-                    <h4 class="text-xl font-bold text-slate-900 mb-2">Design Thinking</h4>
-                    <p class="text-slate-600 text-sm">& Innovation mindsets applied to healthcare.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition-all hover:-translate-y-1">
-                    <i class="fas fa-users-cog text-3xl text-secondary mb-4"></i>
-                    <h4 class="text-xl font-bold text-slate-900 mb-2">Leadership</h4>
-                    <p class="text-slate-600 text-sm">Team building and professional communication.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition-all hover:-translate-y-1">
-                    <i class="fas fa-robot text-3xl text-secondary mb-4"></i>
-                    <h4 class="text-xl font-bold text-slate-900 mb-2">AI & Digital</h4>
-                    <p class="text-slate-600 text-sm">Productivity tools for the modern professional.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition-all hover:-translate-y-1">
-                    <i class="fas fa-search-chart text-3xl text-secondary mb-4"></i>
-                    <h4 class="text-xl font-bold text-slate-900 mb-2">Market Research</h4>
-                    <p class="text-slate-600 text-sm">Primary research and customer discovery.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition-all hover:-translate-y-1">
-                    <i class="fas fa-cubes text-3xl text-secondary mb-4"></i>
-                    <h4 class="text-xl font-bold text-slate-900 mb-2">Prototype Dev</h4>
-                    <p class="text-slate-600 text-sm">Building and validating real solutions.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition-all hover:-translate-y-1">
-                    <i class="fas fa-hospital text-3xl text-secondary mb-4"></i>
-                    <h4 class="text-xl font-bold text-slate-900 mb-2">Industry Visits</h4>
-                    <p class="text-slate-600 text-sm">Direct exposure to healthcare environments.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition-all hover:-translate-y-1">
-                    <i class="fas fa-trophy text-3xl text-secondary mb-4"></i>
-                    <h4 class="text-xl font-bold text-slate-900 mb-2">Demo Day</h4>
-                    <p class="text-slate-600 text-sm">Present to industry leaders and win awards.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6 italic">
+                        "Over the last decade, my work has revolved around one central mission: Helping young people become highly competent individuals who succeed on merit rather than settling for mediocrity."
+                    </p>
 
-    <!-- Program Structure -->
-    <section id="program" class="py-24 bg-white relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-3xl mx-auto mb-20">
-                <h2 class="text-sm font-bold text-primary tracking-widest uppercase mb-3">The Curriculum</h2>
-                <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Program Structure</h3>
-                <p class="text-lg text-slate-600">A step-by-step journey from self-discovery to career launch.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Module 1 -->
-                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 relative overflow-hidden group hover:shadow-xl transition-all duration-300">
-                    <div class="absolute -right-4 -bottom-4 text-9xl font-black text-slate-200/50 group-hover:text-blue-100 transition-colors z-0 pointer-events-none">01</div>
-                    <div class="relative z-10">
-                        <h3 class="text-2xl font-extrabold text-primary mb-6 border-b-2 border-secondary inline-block pb-1">Human-Centered Thinking</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Empathy + Observation</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Icebreakers & Team Building</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Growth Mindset</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Leadership Fundamentals</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Design Thinking Intro</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Observation Skills</span></li>
-                        </ul>
+                    <!-- Fast Pointers Achievements -->
+                    <div class="space-y-3 border-t border-white/10 pt-6 text-sm">
+                        <div class="flex items-center gap-2.5">
+                            <span class="text-emerald-400"><i class="fas fa-check-circle"></i></span>
+                            <span class="text-slate-200">MIT & Harvard Healthcare Innovation Fellow</span>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="text-emerald-400"><i class="fas fa-check-circle"></i></span>
+                            <span class="text-slate-200">NIDHI Entrepreneur in Residence Fellow</span>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="text-emerald-400"><i class="fas fa-check-circle"></i></span>
+                            <span class="text-slate-200">50+ Workshops Delivered Nationwide</span>
+                        </div>
                     </div>
+
+                    <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                        <a href="mailto:nirajkbafna@gmail.com" class="bg-secondary hover:bg-sky-400 text-white px-5 py-3 rounded-xl font-bold text-sm text-center transition-all flex items-center justify-center gap-2">
+                            <i class="fas fa-envelope"></i> Contact Dr. Niiraj
+                        </a>
+                        <!-- Interactive Cover Letter Button -->
+                        <button onclick="toggleCoverLetter()" class="bg-white/10 hover:bg-white/20 text-white px-5 py-3 rounded-xl font-bold text-sm text-center transition-all flex items-center justify-center gap-2">
+                            <i class="fas fa-file-alt"></i> View Statement
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right: Interactive Project Experience Showcase Tabs -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="bg-slate-900 border border-white/5 rounded-3xl p-6 sm:p-8 shadow-xl">
+                        
+                        <!-- Interactive Tabs Controls -->
+                        <div class="flex flex-wrap gap-2 border-b border-white/10 pb-4 mb-6">
+                            <button onclick="switchFounderTab('effipac')" id="tab-btn-effipac" class="founder-tab-btn active px-4 py-2 text-xs font-extrabold rounded-lg transition-all bg-secondary text-white">
+                                Effipac (Startup)
+                            </button>
+                            <button onclick="switchFounderTab('ipa')" id="tab-btn-ipa" class="founder-tab-btn px-4 py-2 text-xs font-extrabold rounded-lg transition-all bg-white/5 text-slate-300 hover:bg-white/10">
+                                IPA-SF Pune
+                            </button>
+                            <button onclick="switchFounderTab('practice')" id="tab-btn-practice" class="founder-tab-btn px-4 py-2 text-xs font-extrabold rounded-lg transition-all bg-white/5 text-slate-300 hover:bg-white/10">
+                                Practice School
+                            </button>
+                            <button onclick="switchFounderTab('fhbn')" id="tab-btn-fhbn" class="founder-tab-btn px-4 py-2 text-xs font-extrabold rounded-lg transition-all bg-white/5 text-slate-300 hover:bg-white/10">
+                                FHBN Community
+                            </button>
+                        </div>
+
+                        <!-- Tab Content 1: Effipac -->
+                        <div id="tab-content-effipac" class="founder-tab-content space-y-4">
+                            <div class="flex justify-between items-start flex-wrap gap-2">
+                                <div>
+                                    <h4 class="text-xl font-extrabold text-white">Founder & CEO, EFFIPAC</h4>
+                                    <p class="text-xs text-secondary font-bold">RxCo Private Limited | 2020 – Present</p>
+                                </div>
+                                <span class="bg-primary/30 border border-primary/50 text-blue-200 text-xs px-2.5 py-1 rounded-md font-bold">Healthcare Automation</span>
+                            </div>
+                            <p class="text-sm text-slate-300">
+                                indigenous pharmacy automation solutions, validating products in real hospital settings.
+                            </p>
+                            <ul class="space-y-2.5 text-xs text-slate-400">
+                                <li class="flex gap-2"><i class="fas fa-caret-right text-secondary mt-0.5"></i> <span>Mentored and trained <strong>25+ interns</strong> across product design, operations, and business development.</span></li>
+                                <li class="flex gap-2"><i class="fas fa-caret-right text-secondary mt-0.5"></i> <span>Raised <strong>₹13 Lakhs</strong> in government innovation grants.</span></li>
+                                <li class="flex gap-2"><i class="fas fa-caret-right text-secondary mt-0.5"></i> <span>Selected under the prestigious <strong>Amrit Grand Challenge</strong>.</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- Tab Content 2: IPA-SF Pune -->
+                        <div id="tab-content-ipa" class="founder-tab-content hidden space-y-4">
+                            <div class="flex justify-between items-start flex-wrap gap-2">
+                                <div>
+                                    <h4 class="text-xl font-extrabold text-white">Founder & President</h4>
+                                    <p class="text-xs text-secondary font-bold">Indian Pharmaceutical Association - Students Forum</p>
+                                </div>
+                                <span class="bg-primary/30 border border-primary/50 text-blue-200 text-xs px-2.5 py-1 rounded-md font-bold">Student Movement</span>
+                            </div>
+                            <p class="text-sm text-slate-300">
+                                Built and scaled a premier platform focusing completely on leadership, professional growth, and direct exposure to industrial systems.
+                            </p>
+                            <ul class="space-y-2.5 text-xs text-slate-400">
+                                <li class="flex gap-2"><i class="fas fa-caret-right text-secondary mt-0.5"></i> <span>Facilitated professional interactions with entrepreneurs and corporate leaders.</span></li>
+                                <li class="flex gap-2"><i class="fas fa-caret-right text-secondary mt-0.5"></i> <span>Created cross-college collaborations to expand student exposure pathways.</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- Tab Content 3: Practice School -->
+                        <div id="tab-content-practice" class="founder-tab-content hidden space-y-4">
+                            <div class="flex justify-between items-start flex-wrap gap-2">
+                                <div>
+                                    <h4 class="text-xl font-extrabold text-white">Program Mentor & Industry Facilitator</h4>
+                                    <p class="text-xs text-secondary font-bold">Practice School Program @ Poona College of Pharmacy</p>
+                                </div>
+                                <span class="bg-primary/30 border border-primary/50 text-blue-200 text-xs px-2.5 py-1 rounded-md font-bold">Experiential Academia</span>
+                            </div>
+                            <p class="text-sm text-slate-300">
+                                Designed structured real-world learning journeys that step completely away from rote memorization.
+                            </p>
+                            <ul class="space-y-2.5 text-xs text-slate-400">
+                                <li class="flex gap-2"><i class="fas fa-caret-right text-secondary mt-0.5"></i> <span>Organized startup visits, hospital observations, and problem-solving projects.</span></li>
+                                <li class="flex gap-2"><i class="fas fa-caret-right text-secondary mt-0.5"></i> <span>Taught Design Thinking applied strictly to pharmacy ecosystem structures.</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- Tab Content 4: FHBN -->
+                        <div id="tab-content-fhbn" class="founder-tab-content hidden space-y-4">
+                            <div class="flex justify-between items-start flex-wrap gap-2">
+                                <div>
+                                    <h4 class="text-xl font-extrabold text-white">Founder & Community Lead</h4>
+                                    <p class="text-xs text-secondary font-bold">FHBN - Firodia Hostel Business Network</p>
+                                </div>
+                                <span class="bg-primary/30 border border-primary/50 text-blue-200 text-xs px-2.5 py-1 rounded-md font-bold">Alumni Network</span>
+                            </div>
+                            <p class="text-sm text-slate-300">
+                                Built an active peer-learning community connecting seasoned business leaders, alumni, and current students.
+                            </p>
+                            <ul class="space-y-2.5 text-xs text-slate-400">
+                                <li class="flex gap-2"><i class="fas fa-caret-right text-secondary mt-0.5"></i> <span>Facilitated continuous learning loops, collaborative problem-solving, and strategic investments.</span></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="cover-letter-modal" class="hidden mt-12 bg-white text-slate-900 rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-2xl relative">
+                <button onclick="toggleCoverLetter()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600 focus:outline-none" aria-label="Close">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+                <div class="max-w-3xl mx-auto space-y-6">
+                    <div class="flex items-center gap-4 border-b border-slate-100 pb-6">
+                        <div class="w-14 h-14 bg-blue-50 text-primary rounded-xl flex items-center justify-center text-xl font-bold">
+                            NK
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-extrabold text-slate-900">Dr. Niiraj K. Bafna</h4>
+                            <p class="text-sm text-slate-500">Skill Development, Innovation, Entrepreneurship & Industry-Academia Bridge Builder</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+                        <p class="font-bold text-slate-900">Dear Hiring Manager, partners, and Institutional Leaders,</p>
+                        <p>
+                            I am writing to express my interest in opportunities focused on skill development, innovation, entrepreneurship education, youth leadership, and industry-academia collaboration.
+                        </p>
+                        <p>
+                            Over the last decade, my work has revolved around one central mission: <strong>Helping young people become highly competent individuals who succeed on merit rather than settling for mediocrity.</strong>
+                        </p>
+                        <p>
+                            While my formal education is in healthcare and pharmacy, my career journey has evolved into building ecosystems that help students learn through real-world exposure, problem-solving, internships, innovation projects, and peer-to-peer learning.
+                        </p>
+                        <p>
+                            Through my work at IPA-SF Pune, Poona College of PCP, FHBN, and Effipac, I have guided countless students from theory to high-value execution. I would welcome the opportunity to scale this exact architecture with you.
+                        </p>
+                        <p class="font-semibold text-slate-900 pt-4">Sincerely,</p>
+                        <p class="font-bold text-primary">Dr. Niiraj K. Bafna</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="program" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <span class="text-xs font-bold text-primary tracking-widest uppercase block mb-2">The Structured Journey</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">The 6-Week Curriculum Structure</h2>
+                <p class="text-slate-600 mt-2">Every week is designed to produce direct, tangible artifacts and core leadership behaviors.</p>
+            </div>
+
+            <!-- Program Curriculum Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Module 1 -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-100 shadow-sm relative overflow-hidden group hover:shadow-md transition-all">
+                    <div class="absolute right-4 top-4 text-xs font-extrabold text-primary bg-primary/5 px-2.5 py-1 rounded-md">Week 1</div>
+                    <span class="text-xs font-bold text-secondary uppercase tracking-widest block mb-2">Module 1</span>
+                    <h3 class="text-xl font-black text-slate-900 mb-2 leading-tight">Human-Centered Thinking</h3>
+                    <p class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-6">Empathy + Observation</p>
+                    
+                    <ul class="space-y-3.5 text-sm">
+                        <li class="flex items-start gap-2.5 text-slate-700">
+                            <span class="text-secondary mt-1"><i class="fas fa-check-circle"></i></span>
+                            <span>Icebreakers & Team Building</span>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-slate-700">
+                            <span class="text-secondary mt-1"><i class="fas fa-check-circle"></i></span>
+                            <span>Cultivating a Growth Mindset</span>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-slate-700">
+                            <span class="text-secondary mt-1"><i class="fas fa-check-circle"></i></span>
+                            <span>Leadership Fundamentals</span>
+                        </li>
+                    </ul>
                 </div>
 
                 <!-- Module 2 -->
-                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 relative overflow-hidden group hover:shadow-xl transition-all duration-300">
-                    <div class="absolute -right-4 -bottom-4 text-9xl font-black text-slate-200/50 group-hover:text-blue-100 transition-colors z-0 pointer-events-none">02</div>
-                    <div class="relative z-10">
-                        <h3 class="text-2xl font-extrabold text-primary mb-6 border-b-2 border-secondary inline-block pb-1 bg-slate-50/80 pr-2">Problem Solving & Critical Thinking</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Define</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Healthcare Problem ID</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Root Cause Analysis</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Brainstorming</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Problem Presentation</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Professional Communication</span></li>
-                        </ul>
-                    </div>
+                <div class="bg-white rounded-2xl p-8 border border-slate-100 shadow-sm relative overflow-hidden group hover:shadow-md transition-all">
+                    <div class="absolute right-4 top-4 text-xs font-extrabold text-primary bg-primary/5 px-2.5 py-1 rounded-md">Week 2</div>
+                    <span class="text-xs font-bold text-secondary uppercase tracking-widest block mb-2">Module 2</span>
+                    <h3 class="text-xl font-black text-slate-900 mb-2 leading-tight">Problem Solving & Critical Thinking</h3>
+                    <p class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-6">Define</p>
+                    
+                    <ul class="space-y-3.5 text-sm">
+                        <li class="flex items-start gap-2.5 text-slate-700">
+                            <span class="text-secondary mt-1"><i class="fas fa-check-circle"></i></span>
+                            <span>Healthcare Problem Identification</span>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-slate-700">
+                            <span class="text-secondary mt-1"><i class="fas fa-check-circle"></i></span>
+                            <span>Root Cause Analysis & Brainstorming</span>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-slate-700">
+                            <span class="text-secondary mt-1"><i class="fas fa-check-circle"></i></span>
+                            <span>Professional Communication Elements</span>
+                        </li>
+                    </ul>
                 </div>
 
                 <!-- Module 3 -->
-                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 relative overflow-hidden group hover:shadow-xl transition-all duration-300">
-                    <div class="absolute -right-4 -bottom-4 text-9xl font-black text-slate-200/50 group-hover:text-blue-100 transition-colors z-0 pointer-events-none">03</div>
-                    <div class="relative z-10">
-                        <h3 class="text-2xl font-extrabold text-primary mb-6 border-b-2 border-secondary inline-block pb-1">Innovation & Customer Discovery</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Ideation + PMR</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Creativity Tools</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Primary Market Research</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Customer Discovery</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">User Interviews</span></li>
-                        </ul>
-                    </div>
+                <div class="bg-white rounded-2xl p-8 border border-slate-100 shadow-sm relative overflow-hidden group hover:shadow-md transition-all">
+                    <div class="absolute right-4 top-4 text-xs font-extrabold text-primary bg-primary/5 px-2.5 py-1 rounded-md">Week 3</div>
+                    <span class="text-xs font-bold text-secondary uppercase tracking-widest block mb-2">Module 3</span>
+                    <h3 class="text-xl font-black text-slate-900 mb-2 leading-tight">Innovation & Customer Discovery</h3>
+                    <p class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-6">Ideation + PMR</p>
+                    
+                    <ul class="space-y-3.5 text-sm">
+                        <li class="flex items-start gap-2.5 text-slate-700">
+                            <span class="text-secondary mt-1"><i class="fas fa-check-circle"></i></span>
+                            <span>Ideation Workshops & Creativity Tools</span>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-slate-700">
+                            <span class="text-secondary mt-1"><i class="fas fa-check-circle"></i></span>
+                            <span>Primary Market Research (PMR) Setup</span>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-slate-700">
+                            <span class="text-secondary mt-1"><i class="fas fa-check-circle"></i></span>
+                            <span>User Discovery Interviews & Feedback loops</span>
+                        </li>
+                    </ul>
                 </div>
 
                 <!-- Module 4 -->
-                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 relative overflow-hidden group hover:shadow-xl transition-all duration-300">
-                    <div class="absolute -right-4 -bottom-4 text-9xl font-black text-slate-200/50 group-hover:text-blue-100 transition-colors z-0 pointer-events-none">04</div>
-                    <div class="relative z-10">
-                        <h3 class="text-2xl font-extrabold text-primary mb-6 border-b-2 border-secondary inline-block pb-1">Rapid Prototyping & AI Applications</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Prototype</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Prototype Development</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">AI for Healthcare Students</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Digital Productivity Tools</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Elevator Pitch Training</span></li>
-                        </ul>
-                    </div>
+                <div class="bg-white rounded-2xl p-8 border border-slate-100 shadow-sm relative overflow-hidden group hover:shadow-md transition-all">
+                    <div class="absolute right-4 top-4 text-xs font-extrabold text-primary bg-primary/5 px-2.5 py-1 rounded-md">Week 4</div>
+                    <span class="text-xs font-bold text-secondary uppercase tracking-widest block mb-2">Module 4</span>
+                    <h3 class="text-xl font-black text-slate-900 mb-2 leading-tight">Rapid Prototyping & AI Applications</h3>
+                    <p class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-6">Prototype</p>
+                    
+                    <ul class="space-y-3.5 text-sm">
+                        <li class="flex items-start gap-2.5 text-slate-700">
+                            <span class="text-secondary mt-1"><i class="fas fa-check-circle"></i></span>
+                            <span>Building Validated Solutions & Prototypes</span>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-slate-700">
+                            <span class="text-secondary mt-1"><i class="fas fa-check-circle"></i></span>
+                            <span>AI Tools for Everyday Productivity</span>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-slate-700">
+                            <span class="text-secondary mt-1"><i class="fas fa-check-circle"></i></span>
+                            <span>High-Impact Elevator Pitch Training</span>
+                        </li>
+                    </ul>
                 </div>
 
                 <!-- Module 5 -->
-                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 relative overflow-hidden group hover:shadow-xl transition-all duration-300">
-                    <div class="absolute -right-4 -bottom-4 text-9xl font-black text-slate-200/50 group-hover:text-blue-100 transition-colors z-0 pointer-events-none">05</div>
-                    <div class="relative z-10">
-                        <h3 class="text-2xl font-extrabold text-primary mb-6 border-b-2 border-secondary inline-block pb-1">Professional Excellence & Industry Connect</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Networking</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Leadership Interaction</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Networking Dinner</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Resume & LinkedIn</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Guest Lecture</span></li>
-                        </ul>
-                    </div>
+                <div class="bg-white rounded-2xl p-8 border border-slate-100 shadow-sm relative overflow-hidden group hover:shadow-md transition-all">
+                    <div class="absolute right-4 top-4 text-xs font-extrabold text-primary bg-primary/5 px-2.5 py-1 rounded-md">Week 5</div>
+                    <span class="text-xs font-bold text-secondary uppercase tracking-widest block mb-2">Module 5</span>
+                    <h3 class="text-xl font-black text-slate-900 mb-2 leading-tight">Professional Excellence & Industry Connect</h3>
+                    <p class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-6">Networking</p>
+                    
+                    <ul class="space-y-3.5 text-sm">
+                        <li class="flex items-start gap-2.5 text-slate-700">
+                            <span class="text-secondary mt-1"><i class="fas fa-check-circle"></i></span>
+                            <span>Structured Industry Visits & Ecosystem Connects</span>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-slate-700">
+                            <span class="text-secondary mt-1"><i class="fas fa-check-circle"></i></span>
+                            <span>Mentorship Dinners & Community Setup</span>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-slate-700">
+                            <span class="text-secondary mt-1"><i class="fas fa-check-circle"></i></span>
+                            <span>LinkedIn & Resume Optimization</span>
+                        </li>
+                    </ul>
                 </div>
 
                 <!-- Module 6 -->
-                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 relative overflow-hidden group hover:shadow-xl transition-all duration-300">
-                    <div class="absolute -right-4 -bottom-4 text-9xl font-black text-slate-200/50 group-hover:text-blue-100 transition-colors z-0 pointer-events-none">06</div>
-                    <div class="relative z-10">
-                        <h3 class="text-2xl font-extrabold text-primary mb-6 border-b-2 border-secondary inline-block pb-1">Leadership, art of communications</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Career Opportunities</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Industry Expectations</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Mock Interviews</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Demo Day & Awards</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-secondary mt-1"></i> <span class="text-slate-700 font-medium">Graduation</span></li>
-                        </ul>
-                    </div>
+                <div class="bg-white rounded-2xl p-8 border border-slate-100 shadow-sm relative overflow-hidden group hover:shadow-md transition-all">
+                    <div class="absolute right-4 top-4 text-xs font-extrabold text-primary bg-primary/5 px-2.5 py-1 rounded-md">Week 6</div>
+                    <span class="text-xs font-bold text-secondary uppercase tracking-widest block mb-2">Module 6</span>
+                    <h3 class="text-xl font-black text-slate-900 mb-2 leading-tight">Leadership, Art of Communications</h3>
+                    <p class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-6">Deploy</p>
+                    
+                    <ul class="space-y-3.5 text-sm">
+                        <li class="flex items-start gap-2.5 text-slate-700">
+                            <span class="text-secondary mt-1"><i class="fas fa-check-circle"></i></span>
+                            <span>Decoding Real Industry Expectations</span>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-slate-700">
+                            <span class="text-secondary mt-1"><i class="fas fa-check-circle"></i></span>
+                            <span>Realistic Mock Interview Simulators</span>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-slate-700">
+                            <span class="text-secondary mt-1"><i class="fas fa-check-circle"></i></span>
+                            <span>Demo Day Showcases & Graduation</span>
+                        </li>
+                    </ul>
                 </div>
-            </div>
 
-            <!-- Learning by doing block -->
-            <div class="mt-16 bg-blue-50 border border-blue-100 rounded-2xl p-8 md:p-10 text-center max-w-4xl mx-auto shadow-sm">
-                <h4 class="text-2xl font-bold text-primary mb-4">Learning by Doing</h4>
-                <p class="text-lg text-slate-700 mb-4">
-                    Throughout the program, students work in teams to identify a real healthcare problem, conduct market research, develop innovative solutions, build prototypes, and present their work before an industry jury.
-                </p>
-                <p class="text-lg font-semibold text-slate-900">
-                    Every student graduates with practical experience—not just theoretical knowledge.
-                </p>
             </div>
         </div>
     </section>
 
-    <!-- Ecosystem -->
-    <section id="ecosystem" class="py-24 bg-slate-900 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-sm font-bold text-secondary tracking-widest uppercase mb-3">The Pipeline</h2>
-                <h3 class="text-3xl md:text-4xl font-bold mb-4">The Three-Stage Ecosystem</h3>
-                <p class="text-lg text-slate-400">A continuous journey from learning to professional deployment.</p>
+    <section id="ecosystem" class="py-24 bg-slate-900 text-white overflow-hidden relative">
+        <div class="absolute -right-20 -top-20 w-[400px] h-[400px] bg-primary/10 rounded-full blur-3xl"></div>
+        <div class="absolute -left-20 -bottom-20 w-[400px] h-[400px] bg-secondary/10 rounded-full blur-3xl"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <span class="text-xs font-bold text-secondary tracking-widest uppercase block mb-2">Systemic Lifelong Support</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold">The Three-Stage OpenUp Ecosystem</h2>
+                <p class="text-slate-400 mt-2">Going way beyond a standard workshop to build a long-term professional platform.</p>
             </div>
 
-            <div class="relative max-w-5xl mx-auto">
-                <!-- Connecting Line -->
-                <div class="hidden md:block absolute left-[50%] top-0 bottom-0 w-1 bg-slate-700 -translate-x-1/2"></div>
+            <!-- Stages grid -->
+            <div class="grid lg:grid-cols-3 gap-8">
                 
-                <!-- Stage 1 -->
-                <div class="relative flex flex-col md:flex-row items-center mb-16">
-                    <div class="md:w-1/2 md:pr-16 md:text-right mb-8 md:mb-0">
-                        <h4 class="text-2xl font-bold text-white mb-3">Stage 1: Leadership Program</h4>
-                        <p class="text-slate-400">A 6-week experiential learning program preparing students with leadership, innovation, AI, and industry-ready skills.</p>
-                        <div class="mt-4 inline-block bg-primary/20 text-blue-300 font-semibold px-4 py-2 rounded-full border border-primary/50 text-sm">
-                            <i class="fas fa-id-badge mr-2"></i>Earn OpenUp Fellow ID
-                        </div>
-                    </div>
-                    <div class="absolute left-[50%] -translate-x-1/2 w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-xl font-bold text-white shadow-[0_0_15px_rgba(3,169,244,0.5)] z-10 border-4 border-slate-900">1</div>
-                    <div class="md:w-1/2 md:pl-16 hidden md:block opacity-10">
-                        <i class="fas fa-graduation-cap text-9xl"></i>
+                <!-- Stage 1 Card -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-8 relative overflow-hidden hover:border-secondary transition-colors">
+                    <div class="absolute -right-12 -bottom-12 w-32 h-32 bg-primary/10 rounded-full blur-xl"></div>
+                    <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center font-extrabold text-lg text-white mb-6">01</div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Leadership Program</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        A 6-week experiential learning phase setting up base fundamentals in Design Thinking, professional communications, and real productivity tools.
+                    </p>
+                    <div class="mt-6 border-t border-white/10 pt-4">
+                        <span class="text-xs text-secondary font-bold uppercase tracking-wider block">Outcome Goal:</span>
+                        <span class="text-xs text-slate-400 block mt-1">Receive authenticated OpenUp Fellow ID on completion.</span>
                     </div>
                 </div>
 
-                <!-- Stage 2 -->
-                <div class="relative flex flex-col md:flex-row items-center mb-16 md:flex-row-reverse">
-                    <div class="md:w-1/2 md:pl-16 mb-8 md:mb-0">
-                        <h4 class="text-2xl font-bold text-white mb-3">Stage 2: Industry Fellowship</h4>
-                        <p class="text-slate-400">Fellows apply for structured industry fellowships with hospitals, pharma, startups, and medical device companies, working on real projects.</p>
-                    </div>
-                    <div class="absolute left-[50%] -translate-x-1/2 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-xl font-bold text-white shadow-[0_0_15px_rgba(0,91,150,0.5)] z-10 border-4 border-slate-900">2</div>
-                    <div class="md:w-1/2 md:pr-16 md:text-right hidden md:block opacity-10">
-                        <i class="fas fa-briefcase-medical text-9xl"></i>
+                <!-- Stage 2 Card -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-8 relative overflow-hidden hover:border-secondary transition-colors">
+                    <div class="absolute -right-12 -bottom-12 w-32 h-32 bg-primary/10 rounded-full blur-xl"></div>
+                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center font-extrabold text-lg text-white mb-6">02</div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Industry Fellowship</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Selected fellows immediately apply for high-value structured industry fellowships with leading hospitals, pharma houses, startups, and CROs.
+                    </p>
+                    <div class="mt-6 border-t border-white/10 pt-4">
+                        <span class="text-xs text-secondary font-bold uppercase tracking-wider block">Outcome Goal:</span>
+                        <span class="text-xs text-slate-400 block mt-1">Work on live industry challenges with co-mentorship.</span>
                     </div>
                 </div>
 
                 <!-- Stage 3 -->
-                <div class="relative flex flex-col md:flex-row items-center">
-                    <div class="md:w-1/2 md:pr-16 md:text-right mb-8 md:mb-0">
-                        <h4 class="text-2xl font-bold text-white mb-3">Stage 3: Alumni & Career Network</h4>
-                        <p class="text-slate-400">Graduates become lifelong members with access to industry mentors, internships, career guidance, and innovation challenges.</p>
-                    </div>
-                    <div class="absolute left-[50%] -translate-x-1/2 w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-xl font-bold text-white shadow-[0_0_15px_rgba(3,169,244,0.5)] z-10 border-4 border-slate-900">3</div>
-                    <div class="md:w-1/2 md:pl-16 hidden md:block opacity-10">
-                        <i class="fas fa-network-wired text-9xl"></i>
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-8 relative overflow-hidden hover:border-secondary transition-colors">
+                    <div class="absolute -right-12 -bottom-12 w-32 h-32 bg-primary/10 rounded-full blur-xl"></div>
+                    <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center font-extrabold text-lg text-white mb-6">03</div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Alumni Network</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Access a dedicated community of professional peers, continuously exchanging high-value internships, mentoring, and updates.
+                    </p>
+                    <div class="mt-6 border-t border-white/10 pt-4">
+                        <span class="text-xs text-secondary font-bold uppercase tracking-wider block">Outcome Goal:</span>
+                        <span class="text-xs text-slate-400 block mt-1">Direct connect loops with active industry heads.</span>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Deliverables & Outcomes -->
-    <section class="py-20 bg-slate-50">
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+                
+                <!-- Left: Student Deliverables -->
+                <div class="lg:col-span-6 space-y-6">
+                    <h2 class="text-xs font-bold text-primary tracking-widest uppercase">The Toolkit</h2>
+                    <h3 class="text-3xl font-extrabold text-slate-900 leading-tight">Every Student Deliverable</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                        We don't just provide certificates. Every single participant steps out with a structured, verified digital portfolio ready to be shown to stakeholders:
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="flex items-center gap-3 p-3.5 bg-slate-50 rounded-xl">
+                            <span class="text-primary text-lg"><i class="fas fa-file-signature"></i></span>
+                            <span class="text-sm font-semibold text-slate-800">Professional Resume</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3.5 bg-slate-50 rounded-xl">
+                            <span class="text-primary text-lg"><i class="fab fa-linkedin"></i></span>
+                            <span class="text-sm font-semibold text-slate-800">Optimized LinkedIn Profile</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3.5 bg-slate-50 rounded-xl">
+                            <span class="text-primary text-lg"><i class="fas fa-lightbulb"></i></span>
+                            <span class="text-sm font-semibold text-slate-800">Innovation Portfolio</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3.5 bg-slate-50 rounded-xl">
+                            <span class="text-primary text-lg"><i class="fas fa-robot"></i></span>
+                            <span class="text-sm font-semibold text-slate-800">Digital AI Skill Kit</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3.5 bg-slate-50 rounded-xl">
+                            <span class="text-primary text-lg"><i class="fas fa-id-card"></i></span>
+                            <span class="text-sm font-semibold text-slate-800">OpenUp Fellow ID</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3.5 bg-slate-50 rounded-xl">
+                            <span class="text-primary text-lg"><i class="fas fa-certificate"></i></span>
+                            <span class="text-sm font-semibold text-slate-800">Readiness Assessment</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: High-impact outcome card -->
+                <div class="lg:col-span-6 bg-slate-50 rounded-3xl p-8 border border-slate-100 shadow-sm space-y-6">
+                    <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-2">
+                        <i class="fas fa-bullseye text-secondary"></i> Measurable Outcomes
+                    </h3>
+                    <p class="text-slate-600 text-sm">
+                        By the end of the 6-week pathway, students will be highly competent to:
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex gap-4 items-start">
+                            <span class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-xs mt-0.5"><i class="fas fa-check"></i></span>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">Identify Real Problems</h4>
+                                <p class="text-xs text-slate-500">Apply rigorous Design Thinking to spot high-impact issues.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <span class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-xs mt-0.5"><i class="fas fa-check"></i></span>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">Develop Tested Solutions</h4>
+                                <p class="text-xs text-slate-500">Build physical/digital mockups and conduct primary market discovery.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <span class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-xs mt-0.5"><i class="fas fa-check"></i></span>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">Present Confidently</h4>
+                                <p class="text-xs text-slate-500">Engage industry jury members with professional storytelling.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-12">
-                <!-- Deliverables -->
-                <div class="bg-white p-8 md:p-10 rounded-3xl shadow-lg border border-slate-100">
-                    <div class="w-16 h-16 bg-blue-50 text-primary rounded-2xl flex items-center justify-center text-2xl mb-6">
-                        <i class="fas fa-box-open"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-900 mb-6">Student Deliverables</h3>
-                    <p class="text-slate-600 mb-8">Every participant receives a comprehensive toolkit and credentials upon completion:</p>
-                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <li class="flex items-center gap-3"><i class="fas fa-certificate text-secondary"></i> <span class="font-medium text-slate-700">Certificate of Completion</span></li>
-                        <li class="flex items-center gap-3"><i class="fas fa-file-alt text-secondary"></i> <span class="font-medium text-slate-700">Professional Resume</span></li>
-                        <li class="flex items-center gap-3"><i class="fab fa-linkedin text-secondary"></i> <span class="font-medium text-slate-700">LinkedIn Profile</span></li>
-                        <li class="flex items-center gap-3"><i class="fas fa-flask text-secondary"></i> <span class="font-medium text-slate-700">Innovation Project</span></li>
-                        <li class="flex items-center gap-3"><i class="fas fa-cogs text-secondary"></i> <span class="font-medium text-slate-700">Prototype</span></li>
-                        <li class="flex items-center gap-3"><i class="fas fa-robot text-secondary"></i> <span class="font-medium text-slate-700">AI Skills Toolkit</span></li>
-                        <li class="flex items-center gap-3"><i class="fas fa-laptop-code text-secondary"></i> <span class="font-medium text-slate-700">Digital Portfolio</span></li>
-                        <li class="flex items-center gap-3"><i class="fas fa-id-card text-secondary"></i> <span class="font-medium text-slate-700">OpenUp Fellow ID</span></li>
-                    </ul>
-                </div>
-
-                <!-- Outcomes -->
-                <div class="bg-primary p-8 md:p-10 rounded-3xl shadow-lg text-white relative overflow-hidden">
-                    <div class="absolute -right-10 -top-10 text-9xl text-white/5"><i class="fas fa-chart-line"></i></div>
-                    <div class="relative z-10">
-                        <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-2xl mb-6 backdrop-blur-sm">
-                            <i class="fas fa-bullseye text-secondary"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-6">Program Outcomes</h3>
-                        <p class="text-blue-100 mb-8">By the end of six weeks, students will be able to:</p>
-                        <ul class="space-y-4">
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-secondary mt-1"></i> <span class="font-light">Identify real healthcare problems and apply Design Thinking.</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-secondary mt-1"></i> <span class="font-light">Conduct primary market research and validate solutions.</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-secondary mt-1"></i> <span class="font-light">Communicate ideas confidently and present professionally.</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-secondary mt-1"></i> <span class="font-light">Use AI tools productively for healthcare applications.</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-secondary mt-1"></i> <span class="font-light">Build a strong professional profile ready for industry careers.</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us -->
-    <section id="benefits" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-16">
-                <div>
-                    <h3 class="text-3xl font-bold text-slate-900 mb-8 border-b pb-4">Why Colleges Choose Us</h3>
-                    <ul class="space-y-6">
-                        <li class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-primary flex-shrink-0"><i class="fas fa-chart-bar"></i></div>
-                            <div>
-                                <h4 class="font-bold text-slate-800 text-lg">Improves student employability</h4>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-primary flex-shrink-0"><i class="fas fa-handshake"></i></div>
-                            <div>
-                                <h4 class="font-bold text-slate-800 text-lg">Strengthens industry-academia collaboration</h4>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-primary flex-shrink-0"><i class="fas fa-rocket"></i></div>
-                            <div>
-                                <h4 class="font-bold text-slate-800 text-lg">Promotes innovation & entrepreneurship</h4>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-primary flex-shrink-0"><i class="fas fa-project-diagram"></i></div>
-                            <div>
-                                <h4 class="font-bold text-slate-800 text-lg">Builds project-based learning culture</h4>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-primary flex-shrink-0"><i class="fas fa-briefcase"></i></div>
-                            <div>
-                                <h4 class="font-bold text-slate-800 text-lg">Supports placement initiatives</h4>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
                 
-                <div>
-                    <h3 class="text-3xl font-bold text-slate-900 mb-8 border-b pb-4">Why Students Love Us</h3>
-                    <ul class="space-y-6">
-                        <li class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-full bg-sky-50 flex items-center justify-center text-secondary flex-shrink-0"><i class="fas fa-comments"></i></div>
-                            <div>
-                                <h4 class="font-bold text-slate-800 text-lg">Confidence to communicate</h4>
-                            </div>
+                <!-- Colleges Choice Card -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-blue-50 text-primary rounded-xl flex items-center justify-center text-xl mb-6">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-6">Why Colleges Partner With Us</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="text-primary mt-1"><i class="fas fa-angle-double-right"></i></span>
+                            <span class="text-slate-700 text-sm font-semibold">Significantly improves final student employability.</span>
                         </li>
-                        <li class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-full bg-sky-50 flex items-center justify-center text-secondary flex-shrink-0"><i class="fas fa-globe"></i></div>
-                            <div>
-                                <h4 class="font-bold text-slate-800 text-lg">Real-world healthcare exposure</h4>
-                            </div>
+                        <li class="flex items-start gap-3">
+                            <span class="text-primary mt-1"><i class="fas fa-angle-double-right"></i></span>
+                            <span class="text-slate-700 text-sm font-semibold">Strengthens continuous industry-academia synergy loops.</span>
                         </li>
-                        <li class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-full bg-sky-50 flex items-center justify-center text-secondary flex-shrink-0"><i class="fas fa-magic"></i></div>
-                            <div>
-                                <h4 class="font-bold text-slate-800 text-lg">AI and digital productivity skills</h4>
-                            </div>
+                        <li class="flex items-start gap-3">
+                            <span class="text-primary mt-1"><i class="fas fa-angle-double-right"></i></span>
+                            <span class="text-slate-700 text-sm font-semibold">Supports on-campus entrepreneurial cells.</span>
                         </li>
-                        <li class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-full bg-sky-50 flex items-center justify-center text-secondary flex-shrink-0"><i class="fas fa-folder-open"></i></div>
-                            <div>
-                                <h4 class="font-bold text-slate-800 text-lg">A professional portfolio</h4>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-full bg-sky-50 flex items-center justify-center text-secondary flex-shrink-0"><i class="fas fa-key"></i></div>
-                            <div>
-                                <h4 class="font-bold text-slate-800 text-lg">Access to future fellowships</h4>
-                            </div>
+                        <li class="flex items-start gap-3">
+                            <span class="text-primary mt-1"><i class="fas fa-angle-double-right"></i></span>
+                            <span class="text-slate-700 text-sm font-semibold">Provides clean, ready placement matrices for accreditation.</span>
                         </li>
                     </ul>
                 </div>
+
+                <!-- Students Choice Card -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-sky-50 text-secondary rounded-xl flex items-center justify-center text-xl mb-6">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-6">Why Students Love OpenUp</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="text-secondary mt-1"><i class="fas fa-angle-double-right"></i></span>
+                            <span class="text-slate-700 text-sm font-semibold">Builds clear, stress-free communicative confidence.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-secondary mt-1"><i class="fas fa-angle-double-right"></i></span>
+                            <span class="text-slate-700 text-sm font-semibold">Offers real, direct ecosystem and startup exposure.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-secondary mt-1"><i class="fas fa-angle-double-right"></i></span>
+                            <span class="text-slate-700 text-sm font-semibold">Equips with AI skills crucial to modern enterprise roles.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-secondary mt-1"><i class="fas fa-angle-double-right"></i></span>
+                            <span class="text-slate-700 text-sm font-semibold">Unlocks priority access to elite career fellowships.</span>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- CTA & Vision -->
-    <section id="apply" class="py-24 bg-gradient-to-br from-primary to-blue-900 text-white text-center relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+CjxjaXJjbGUgY3g9IjIiIGN5PSIyIiByPSIyIiBmaWxsPSIjZmZmIi8+Cjwvc3ZnPg==')]"></div>
+    <section id="apply" class="py-24 bg-gradient-to-br from-darkNavy via-primary to-blue-900 text-white text-center relative overflow-hidden">
+        <!-- SVG Pattern backdrop -->
+        <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]"></div>
+        
         <div class="max-w-4xl mx-auto px-4 relative z-10">
-            <div class="mb-10 text-6xl opacity-20"><i class="fas fa-quote-left"></i></div>
-            <h2 class="text-3xl md:text-4xl font-light leading-relaxed mb-12 italic">
-                "To build India's most trusted Healthcare Talent Network by identifying, developing, and connecting future healthcare professionals with industry through experiential learning, fellowships, and lifelong mentorship."
+            <span class="text-xs font-bold text-secondary tracking-widest uppercase block mb-3">Begin Your Journey Today</span>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+                Empower Indian Youth to <br>Become Globally Competent
             </h2>
-            
-            <div class="bg-white/10 p-10 rounded-3xl backdrop-blur-md border border-white/20 mt-12">
-                <h3 class="text-3xl font-bold mb-4">Ready to transform your future?</h3>
-                <p class="text-blue-100 mb-8 text-lg">Join the next cohort of the OpenUp Leadership Program.</p>
-                <button class="bg-secondary hover:bg-sky-400 text-white px-10 py-4 rounded-full font-bold text-xl transition-all transform hover:scale-105 shadow-xl w-full sm:w-auto">
-                    Apply Now
-                </button>
+            <p class="text-blue-100/90 text-sm sm:text-base max-w-2xl mx-auto mb-10 leading-relaxed">
+                Whether you are a College Principal seeking a placement enhancer, or a Pharmacy student eager to stand out by sheer merit—OpenUp is your starting point.
+            </p>
+
+            <div class="bg-white/5 border border-white/10 rounded-3xl p-8 sm:p-10 backdrop-blur-md max-w-2xl mx-auto">
+                <h3 class="text-xl sm:text-2xl font-bold mb-2">Apply / Propose Partnership</h3>
+                <p class="text-xs text-blue-200 mb-6">Let's build long-term, capable networks together.</p>
+                
+                <!-- Simple Touch friendly form action -->
+                <form onsubmit="handleFormSubmission(event)" class="space-y-4 text-left">
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-blue-200 mb-1">Your Name</label>
+                            <input type="text" required placeholder="Dr. Niiraj Bafna" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-secondary">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-blue-200 mb-1">Your Email</label>
+                            <input type="email" required placeholder="example@gmail.com" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-secondary">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-blue-200 mb-1">I am representing a...</label>
+                        <select required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-secondary [color-scheme:dark]">
+                            <option value="student">Student looking to join</option>
+                            <option value="college">College/Institution looking to host</option>
+                            <option value="industry">Industry Partner / Mentor</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-secondary hover:bg-sky-400 text-white font-extrabold py-3.5 rounded-xl text-sm transition-all shadow-md mt-2">
+                        Submit Enquiry
+                    </button>
+                </form>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-slate-800 text-white rounded flex items-center justify-center font-bold text-sm">OU</div>
-                <span class="font-bold text-white tracking-tight">OpenUp</span>
+    <footer class="bg-slate-950 text-slate-400 py-16 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-12 items-center">
+            
+            <div class="space-y-4">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-8 h-8 bg-slate-800 text-white rounded-lg flex items-center justify-center font-bold text-sm">OU</div>
+                    <span class="font-bold text-white tracking-tight">OpenUp Leadership</span>
+                </div>
+                <p class="text-xs leading-relaxed text-slate-500">
+                    Discover. Develop. Deploy. Transforming pharmacy students into industry-ready leaders.
+                </p>
             </div>
-            <div class="text-sm">
-                &copy; 2026 OpenUp Healthcare Leadership Program. All rights reserved.
+
+            <div class="space-y-2 text-xs md:text-center">
+                <span class="block text-slate-300 font-bold">Dr. Niiraj K. Bafna</span>
+                <span class="block">Pune, Maharashtra | +91 7387558383</span>
+                <span class="block text-secondary">nirajkbafna@gmail.com</span>
             </div>
-            <div class="flex gap-4">
-                <span class="text-xs font-semibold tracking-widest text-slate-500">DISCOVER. DEVELOP. DEPLOY.</span>
+
+            <div class="text-xs md:text-right space-y-2">
+                <span class="block font-semibold tracking-widest text-slate-600">MISSION-DRIVEN EXPERIENTIAL LEARNING</span>
+                <p class="text-[11px] text-slate-600">&copy; 2026 OpenUp Healthcare Leadership. All rights reserved.</p>
             </div>
+
         </div>
     </footer>
 
+    <script>
+        // Toggle mobile responsive menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Simple interactive Tabs Switcher for Dr. Niiraj's Experience Profile
+        function switchFounderTab(tabId) {
+            // Hide all tab content
+            const contents = document.querySelectorAll('.founder-tab-content');
+            contents.forEach(content => content.classList.add('hidden'));
+
+            // Remove active classes from all tab buttons
+            const buttons = document.querySelectorAll('.founder-tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-secondary', 'text-white');
+                btn.classList.add('bg-white/5', 'text-slate-300');
+            });
+
+            // Show selected tab content
+            const activeContent = document.getElementById(`tab-content-${tabId}`);
+            if (activeContent) {
+                activeContent.classList.remove('hidden');
+            }
+
+            // Set clicked button to active
+            const activeBtn = document.getElementById(`tab-btn-${tabId}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white/5', 'text-slate-300');
+                activeBtn.classList.add('bg-secondary', 'text-white');
+            }
+        }
+
+        // Toggle visibility of the cover letter / executive statement
+        function toggleCoverLetter() {
+            const element = document.getElementById('cover-letter-modal');
+            if (element.classList.contains('hidden')) {
+                element.classList.remove('hidden');
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                element.classList.add('hidden');
+            }
+        }
+
+        // Simple interactive mock alert for contact forms (Never use browser alert)
+        function handleFormSubmission(event) {
+            event.preventDefault();
+            // Display clean dynamic feedback toast instead of system alert
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-5 right-5 z-50 bg-slate-900 border border-secondary text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3 transition-opacity duration-500';
+            toast.innerHTML = `
+                <i class="fas fa-check-circle text-secondary text-xl"></i>
+                <div>
+                    <p class="font-bold text-sm">Application Sent!</p>
+                    <p class="text-xs text-slate-400">Dr. Niiraj or team will connect with you soon.</p>
+                </div>
+            `;
+            document.body.appendChild(toast);
+            
+            // Clear inputs
+            event.target.reset();
+
+            // Fade out and remove toast after 4 seconds
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 500);
+            }, 4000);
+        }
+    </script>
 </body>
 </html>
