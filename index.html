@@ -38,7 +38,10 @@
         .text-glow {
             text-shadow: 0 0 15px rgba(3, 169, 244, 0.4);
         }
-        /* Custom scrollbar for premium touch */
+        /* Premium subtle animations */
+        .hover-card-trigger:hover .hover-card-target {
+            transform: translateY(-4px);
+        }
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -56,6 +59,7 @@
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-secondary selection:text-white">
 
+    <!-- Navigation -->
     <nav class="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
@@ -79,7 +83,7 @@
                         <span class="w-2 h-2 bg-emerald-500 rounded-full inline-block animate-pulse"></span> Meet Dr. Niiraj
                     </a>
                     <a href="#benefits" class="text-slate-600 hover:text-primary font-semibold transition-colors">Benefits</a>
-                    <a href="#apply" class="bg-primary hover:bg-blue-800 text-white px-6 py-2.5 rounded-full font-bold transition-all transform hover:scale-105 shadow-md">Apply Now</a>
+                    <a href="#contact" class="bg-primary hover:bg-blue-800 text-white px-6 py-2.5 rounded-full font-bold transition-all transform hover:scale-105 shadow-md">Get in Touch</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -97,127 +101,67 @@
             <a href="#program" class="block text-slate-700 hover:text-primary font-semibold py-2">Curriculum</a>
             <a href="#ecosystem" class="block text-slate-700 hover:text-primary font-semibold py-2">3-Stage Ecosystem</a>
             <a href="#founder" class="block text-slate-700 hover:text-primary font-semibold py-2">Meet the Founder</a>
-            <a href="#benefits" class="block text-slate-700 hover:text-primary font-semibold py-2">Colleges & Students</a>
-            <a href="#apply" class="block bg-primary text-white text-center py-3 rounded-xl font-bold">Apply Now</a>
+            <a href="#benefits" class="block text-slate-700 hover:text-primary font-semibold py-2">Benefits</a>
+            <a href="#contact" class="block bg-primary text-white text-center py-3 rounded-xl font-bold">Get in Touch</a>
         </div>
     </nav>
 
-    <section class="relative pt-32 pb-24 lg:pt-44 lg:pb-36 overflow-hidden bg-gradient-to-br from-darkNavy via-primary to-blue-900 text-white">
-        <!-- Abstract Tech Circles background -->
+    <!-- Pitch Hero Section (Spacious & Clean Layout) -->
+    <section class="relative pt-32 pb-24 lg:pt-48 lg:pb-44 overflow-hidden bg-gradient-to-br from-darkNavy via-primary to-blue-900 text-white">
+        <!-- Background Tech Layer -->
         <div class="absolute inset-0 opacity-15 mix-blend-overlay bg-[radial-gradient(#03a9f4_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-3xl"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-12 gap-12 items-center">
+            <div class="max-w-4xl mx-auto text-center space-y-8">
+                <div class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-secondary/15 text-secondary border border-secondary/30 font-bold text-xs tracking-wider uppercase mx-auto">
+                    <i class="fas fa-handshake text-[10px]"></i> Ecosystem Partnership Pitch
+                </div>
                 
-                <!-- Hero Text Left -->
-                <div class="lg:col-span-7 space-y-6">
-                    <div class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-secondary/15 text-secondary border border-secondary/30 font-bold text-xs tracking-wider uppercase">
-                        <i class="fas fa-bolt text-[10px]"></i> Experiential Innovation Program
-                    </div>
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
-                        Building the Next Generation of <br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary via-sky-300 to-white">Industry-Ready</span> Professionals
-                    </h1>
-                    <p class="text-lg md:text-xl text-blue-100/90 font-light max-w-2xl leading-relaxed">
-                        An Experiential Leadership & Innovation Program designed specifically for Pharmacy students. Step out of rote learning and step into real-world capability.
-                    </p>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight">
+                    Building the Next Generation of <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary via-sky-300 to-white">Industry-Ready</span> Healthcare Professionals
+                </h1>
+                
+                <p class="text-lg md:text-2xl text-blue-100/90 font-light max-w-3xl mx-auto leading-relaxed">
+                    An Experiential Leadership & Innovation Program designed specifically for Pharmacy students. Bridging academia and market reality through structured, hands-on development.
+                </p>
 
-                    <!-- Key highlights points -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                        <div class="flex items-center gap-3">
-                            <span class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-secondary"><i class="fas fa-calendar-alt"></i></span>
-                            <span class="text-sm font-semibold text-blue-50">6 Weeks | 12 Practical Sessions</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <span class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-secondary"><i class="fas fa-sitemap"></i></span>
-                            <span class="text-sm font-semibold text-blue-50">3-Stage Career Ecosystem</span>
-                        </div>
+                <!-- Program Quick Specs -->
+                <div class="flex flex-wrap justify-center gap-6 md:gap-12 pt-4">
+                    <div class="flex items-center gap-2.5">
+                        <span class="w-2 h-2 bg-secondary rounded-full"></span>
+                        <span class="text-sm md:text-base font-semibold text-blue-100">6 Weeks Duration</span>
                     </div>
-
-                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                        <a href="#apply" class="bg-secondary hover:bg-sky-400 text-white px-8 py-4 rounded-full font-bold text-center transition-all transform hover:-translate-y-1 shadow-[0_4px_20px_rgba(3,169,244,0.4)]">
-                            Apply for Next Cohort
-                        </a>
-                        <a href="#founder" class="bg-white/10 hover:bg-white/25 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-bold text-center transition-all">
-                            Meet the Founder
-                        </a>
+                    <div class="flex items-center gap-2.5">
+                        <span class="w-2 h-2 bg-secondary rounded-full"></span>
+                        <span class="text-sm md:text-base font-semibold text-blue-100">12 Experiential Sessions</span>
+                    </div>
+                    <div class="flex items-center gap-2.5">
+                        <span class="w-2 h-2 bg-secondary rounded-full"></span>
+                        <span class="text-sm md:text-base font-semibold text-blue-100">3-Stage Career Ecosystem</span>
                     </div>
                 </div>
 
-                <!-- Hero Image Right (Premium Card showcasing Program Pillars) -->
-                <div class="lg:col-span-5 relative">
-                    <div class="bg-slate-900/60 border border-white/15 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-md relative overflow-hidden">
-                        <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-secondary/15 rounded-full blur-2xl"></div>
-                        
-                        <h3 class="text-xl font-bold mb-6 text-white border-b border-white/10 pb-4 flex items-center gap-2">
-                            <i class="fas fa-rocket text-secondary"></i> core Program Pillars
-                        </h3>
-                        
-                        <div class="space-y-5">
-                            <div class="flex gap-4">
-                                <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-secondary flex items-center justify-center flex-shrink-0"><i class="fas fa-brain"></i></div>
-                                <div>
-                                    <h4 class="font-bold text-white">Design Thinking</h4>
-                                    <p class="text-xs text-blue-200">Empathy mapping, observation, and critical problem validation.</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-4">
-                                <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-secondary flex items-center justify-center flex-shrink-0"><i class="fas fa-briefcase"></i></div>
-                                <div>
-                                    <h4 class="font-bold text-white">Industry Readiness</h4>
-                                    <p class="text-xs text-blue-200">Bridging the gap with actual expectations & real deliverables.</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-4">
-                                <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-secondary flex items-center justify-center flex-shrink-0"><i class="fas fa-users"></i></div>
-                                <div>
-                                    <h4 class="font-bold text-white">Peer Network & Mentorship</h4>
-                                    <p class="text-xs text-blue-200">Building community-centric personal branding.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Mini Badges -->
-                        <div class="mt-8 pt-6 border-t border-white/10 flex flex-wrap gap-2">
-                            <span class="text-[10px] bg-white/10 text-slate-200 px-2.5 py-1 rounded-md font-semibold">AI Productivity</span>
-                            <span class="text-[10px] bg-white/10 text-slate-200 px-2.5 py-1 rounded-md font-semibold">Market Research</span>
-                            <span class="text-[10px] bg-white/10 text-slate-200 px-2.5 py-1 rounded-md font-semibold">Pitching</span>
-                        </div>
-                    </div>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center pt-6">
+                    <a href="#contact" class="bg-secondary hover:bg-sky-400 text-white px-8 py-4 rounded-full font-bold text-center transition-all transform hover:-translate-y-1 shadow-[0_4px_20px_rgba(3,169,244,0.4)]">
+                        Discuss Collaboration
+                    </a>
+                    <a href="#founder" class="bg-white/10 hover:bg-white/25 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-bold text-center transition-all">
+                        Meet the Founder
+                    </a>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <section class="relative z-20 -mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-white rounded-2xl shadow-xl border border-slate-100 p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div>
-                <span class="text-4xl md:text-5xl font-black text-primary block">50+</span>
-                <span class="text-xs md:text-sm text-slate-500 font-bold uppercase tracking-wider block mt-2">Workshops Conducted</span>
-            </div>
-            <div class="border-l border-slate-100">
-                <span class="text-4xl md:text-5xl font-black text-primary block">25+</span>
-                <span class="text-xs md:text-sm text-slate-500 font-bold uppercase tracking-wider block mt-2">Internships Facilitated</span>
-            </div>
-            <div class="border-l border-slate-100">
-                <span class="text-4xl md:text-5xl font-black text-primary block">9+ Yrs</span>
-                <span class="text-xs md:text-sm text-slate-500 font-bold uppercase tracking-wider block mt-2">Ecosystem Experience</span>
-            </div>
-            <div class="border-l border-slate-100">
-                <span class="text-4xl md:text-5xl font-black text-primary block">100%</span>
-                <span class="text-xs md:text-sm text-slate-500 font-bold uppercase tracking-wider block mt-2">Experiential Learning</span>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="py-20 bg-white">
+    <!-- The Challenge & About -->
+    <section id="about" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 
-                <!-- Left: Illustration / Structured Pillars -->
+                <!-- Left Column: The Gap -->
                 <div class="space-y-6">
                     <div class="w-16 h-16 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center text-3xl shadow-sm">
                         <i class="fas fa-exclamation-triangle"></i>
@@ -228,11 +172,11 @@
                     </h3>
                     
                     <div class="space-y-4 text-slate-600">
-                        <p>
+                        <p class="text-lg leading-relaxed">
                             Pharmacy graduates are brilliant at biochemistry, pharmacology, and drug formulations. However, they are rarely taught how the actual commercial or structural ecosystem works.
                         </p>
                         
-                        <!-- Mini bullet pointers -->
+                        <!-- Pointers -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                             <div class="flex items-start gap-2.5">
                                 <span class="text-red-500 mt-1"><i class="fas fa-times-circle"></i></span>
@@ -260,23 +204,23 @@
                     </div>
                 </div>
 
-                <!-- Right: Solution Framework Card -->
-                <div class="bg-slate-50 border border-slate-100 rounded-3xl p-8 shadow-sm">
-                    <div class="w-16 h-16 bg-blue-50 text-primary rounded-2xl flex items-center justify-center text-3xl shadow-sm mb-6">
+                <!-- Right Column: Our Solution -->
+                <div class="bg-slate-50 border border-slate-100 rounded-3xl p-8 sm:p-10 shadow-sm space-y-6">
+                    <div class="w-16 h-16 bg-blue-50 text-primary rounded-2xl flex items-center justify-center text-3xl shadow-sm">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <h2 class="text-xs font-bold text-primary tracking-widest uppercase mb-1">Our Solution</h2>
-                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Experiential Beyond the Classroom</h3>
-                    <p class="text-slate-600 mb-6 leading-relaxed">
+                    <h2 class="text-xs font-bold text-primary tracking-widest uppercase">Our Solution</h2>
+                    <h3 class="text-2xl sm:text-3xl font-bold text-slate-900">Experiential Beyond the Classroom</h3>
+                    <p class="text-slate-600 leading-relaxed">
                         OpenUp is built exactly to remedy these gaps. We combine design thinking, collaborative structures, and professional presentation skills into a streamlined roadmap that creates highly competent, hireable innovators.
                     </p>
 
-                    <div class="space-y-4">
-                        <div class="flex gap-4 items-center p-3.5 bg-white rounded-xl border border-slate-100 shadow-sm">
+                    <div class="space-y-4 pt-2">
+                        <div class="flex gap-4 items-center p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
                             <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-xs"><i class="fas fa-check"></i></span>
                             <span class="text-sm font-bold text-slate-800">Learn directly by executing a real innovation project</span>
                         </div>
-                        <div class="flex gap-4 items-center p-3.5 bg-white rounded-xl border border-slate-100 shadow-sm">
+                        <div class="flex gap-4 items-center p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
                             <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-xs"><i class="fas fa-check"></i></span>
                             <span class="text-sm font-bold text-slate-800">Step-by-step masterclasses facilitated by industry veterans</span>
                         </div>
@@ -287,164 +231,123 @@
         </div>
     </section>
 
+    <!-- Profile & Background (Integrated Narrative Timeline) -->
     <section id="founder" class="py-24 bg-gradient-to-br from-slate-900 to-slate-950 text-white relative">
         <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             
-            <div class="text-center max-w-3xl mx-auto mb-16">
+            <div class="text-center max-w-3xl mx-auto mb-20">
                 <span class="text-xs font-bold text-secondary tracking-widest uppercase block mb-2">The Visionary Behind OpenUp</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">Meet Your Program Founder & Lead Mentor</h2>
-                <p class="text-slate-400">Repositioning student development from mere academic training to modern ecosystem-driven mastery.</p>
+                <h2 class="text-3xl sm:text-5xl font-extrabold mb-4">Meet the Lead Mentor</h2>
+                <p class="text-slate-400 text-lg">Repositioning student development from mere academic training to modern ecosystem-driven mastery.</p>
             </div>
 
-            <!-- Profile Core Grid -->
-            <div class="grid lg:grid-cols-12 gap-12 items-start">
+            <div class="grid lg:grid-cols-12 gap-16 items-start">
                 
                 <!-- Left: Profile Intro Card -->
-                <div class="lg:col-span-5 bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-full blur-2xl"></div>
-                    
-                    <div class="flex items-center gap-4 mb-6">
+                <div class="lg:col-span-5 bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm sticky top-28">
+                    <div class="flex items-center gap-5 mb-6">
                         <div class="w-20 h-20 bg-gradient-to-tr from-primary to-secondary rounded-2xl flex items-center justify-center text-white text-3xl font-black shadow-lg">
                             NB
                         </div>
                         <div>
-                            <h3 class="text-2xl font-extrabold text-white">Dr. Niiraj K. Bafna</h3>
-                            <p class="text-xs text-secondary font-bold uppercase tracking-widest">Pune, Maharashtra</p>
-                            <p class="text-sm text-slate-300 mt-1">Skill & Innovation Catalyst</p>
+                            <h3 class="text-2xl font-extrabold text-white leading-tight">Dr. Niiraj K. Bafna</h3>
+                            <p class="text-xs text-secondary font-bold uppercase tracking-widest mt-1">Pune, Maharashtra</p>
+                            <p class="text-sm text-slate-300">Skill & Innovation Catalyst</p>
                         </div>
                     </div>
 
-                    <p class="text-slate-300 text-sm leading-relaxed mb-6 italic">
+                    <p class="text-slate-300 text-base leading-relaxed mb-6 italic">
                         "Over the last decade, my work has revolved around one central mission: Helping young people become highly competent individuals who succeed on merit rather than settling for mediocrity."
                     </p>
 
-                    <!-- Fast Pointers Achievements -->
-                    <div class="space-y-3 border-t border-white/10 pt-6 text-sm">
-                        <div class="flex items-center gap-2.5">
-                            <span class="text-emerald-400"><i class="fas fa-check-circle"></i></span>
-                            <span class="text-slate-200">MIT & Harvard Healthcare Innovation Fellow</span>
-                        </div>
-                        <div class="flex items-center gap-2.5">
-                            <span class="text-emerald-400"><i class="fas fa-check-circle"></i></span>
-                            <span class="text-slate-200">NIDHI Entrepreneur in Residence Fellow</span>
-                        </div>
-                        <div class="flex items-center gap-2.5">
-                            <span class="text-emerald-400"><i class="fas fa-check-circle"></i></span>
-                            <span class="text-slate-200">50+ Workshops Delivered Nationwide</span>
+                    <!-- Core Expertise Tags -->
+                    <div class="border-t border-white/10 pt-6">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Core Expertise</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[10px] bg-white/10 text-slate-200 px-3 py-1 rounded-full font-semibold">Skill Development</span>
+                            <span class="text-[10px] bg-white/10 text-slate-200 px-3 py-1 rounded-full font-semibold">Design Thinking</span>
+                            <span class="text-[10px] bg-white/10 text-slate-200 px-3 py-1 rounded-full font-semibold">Youth Empowerment</span>
+                            <span class="text-[10px] bg-white/10 text-slate-200 px-3 py-1 rounded-full font-semibold">Startup Ecosystems</span>
+                            <span class="text-[10px] bg-white/10 text-slate-200 px-3 py-1 rounded-full font-semibold">Industry-Academia Collaboration</span>
                         </div>
                     </div>
 
                     <div class="mt-8 flex flex-col sm:flex-row gap-3">
-                        <a href="mailto:nirajkbafna@gmail.com" class="bg-secondary hover:bg-sky-400 text-white px-5 py-3 rounded-xl font-bold text-sm text-center transition-all flex items-center justify-center gap-2">
+                        <a href="mailto:nirajkbafna@gmail.com" class="bg-secondary hover:bg-sky-400 text-white px-5 py-3.5 rounded-xl font-bold text-sm text-center transition-all flex items-center justify-center gap-2">
                             <i class="fas fa-envelope"></i> Contact Dr. Niiraj
                         </a>
-                        <!-- Interactive Cover Letter Button -->
-                        <button onclick="toggleCoverLetter()" class="bg-white/10 hover:bg-white/20 text-white px-5 py-3 rounded-xl font-bold text-sm text-center transition-all flex items-center justify-center gap-2">
-                            <i class="fas fa-file-alt"></i> View Statement
+                        <button onclick="toggleCoverLetter()" class="bg-white/10 hover:bg-white/20 text-white px-5 py-3.5 rounded-xl font-bold text-sm text-center transition-all flex items-center justify-center gap-2">
+                            <i class="fas fa-file-alt"></i> View Philosophy Statement
                         </button>
                     </div>
                 </div>
 
-                <!-- Right: Interactive Project Experience Showcase Tabs -->
-                <div class="lg:col-span-7 space-y-6">
-                    <div class="bg-slate-900 border border-white/5 rounded-3xl p-6 sm:p-8 shadow-xl">
-                        
-                        <!-- Interactive Tabs Controls -->
-                        <div class="flex flex-wrap gap-2 border-b border-white/10 pb-4 mb-6">
-                            <button onclick="switchFounderTab('effipac')" id="tab-btn-effipac" class="founder-tab-btn active px-4 py-2 text-xs font-extrabold rounded-lg transition-all bg-secondary text-white">
-                                Effipac (Startup)
-                            </button>
-                            <button onclick="switchFounderTab('ipa')" id="tab-btn-ipa" class="founder-tab-btn px-4 py-2 text-xs font-extrabold rounded-lg transition-all bg-white/5 text-slate-300 hover:bg-white/10">
-                                IPA-SF Pune
-                            </button>
-                            <button onclick="switchFounderTab('practice')" id="tab-btn-practice" class="founder-tab-btn px-4 py-2 text-xs font-extrabold rounded-lg transition-all bg-white/5 text-slate-300 hover:bg-white/10">
-                                Practice School
-                            </button>
-                            <button onclick="switchFounderTab('fhbn')" id="tab-btn-fhbn" class="founder-tab-btn px-4 py-2 text-xs font-extrabold rounded-lg transition-all bg-white/5 text-slate-300 hover:bg-white/10">
-                                FHBN Community
-                            </button>
-                        </div>
-
-                        <!-- Tab Content 1: Effipac -->
-                        <div id="tab-content-effipac" class="founder-tab-content space-y-4">
-                            <div class="flex justify-between items-start flex-wrap gap-2">
-                                <div>
-                                    <h4 class="text-xl font-extrabold text-white">Founder & CEO, EFFIPAC</h4>
-                                    <p class="text-xs text-secondary font-bold">RxCo Private Limited | 2020 – Present</p>
-                                </div>
-                                <span class="bg-primary/30 border border-primary/50 text-blue-200 text-xs px-2.5 py-1 rounded-md font-bold">Healthcare Automation</span>
-                            </div>
-                            <p class="text-sm text-slate-300">
-                                indigenous pharmacy automation solutions, validating products in real hospital settings.
-                            </p>
-                            <ul class="space-y-2.5 text-xs text-slate-400">
-                                <li class="flex gap-2"><i class="fas fa-caret-right text-secondary mt-0.5"></i> <span>Mentored and trained <strong>25+ interns</strong> across product design, operations, and business development.</span></li>
-                                <li class="flex gap-2"><i class="fas fa-caret-right text-secondary mt-0.5"></i> <span>Raised <strong>₹13 Lakhs</strong> in government innovation grants.</span></li>
-                                <li class="flex gap-2"><i class="fas fa-caret-right text-secondary mt-0.5"></i> <span>Selected under the prestigious <strong>Amrit Grand Challenge</strong>.</span></li>
-                            </ul>
-                        </div>
-
-                        <!-- Tab Content 2: IPA-SF Pune -->
-                        <div id="tab-content-ipa" class="founder-tab-content hidden space-y-4">
-                            <div class="flex justify-between items-start flex-wrap gap-2">
-                                <div>
-                                    <h4 class="text-xl font-extrabold text-white">Founder & President</h4>
-                                    <p class="text-xs text-secondary font-bold">Indian Pharmaceutical Association - Students Forum</p>
-                                </div>
-                                <span class="bg-primary/30 border border-primary/50 text-blue-200 text-xs px-2.5 py-1 rounded-md font-bold">Student Movement</span>
-                            </div>
-                            <p class="text-sm text-slate-300">
-                                Built and scaled a premier platform focusing completely on leadership, professional growth, and direct exposure to industrial systems.
-                            </p>
-                            <ul class="space-y-2.5 text-xs text-slate-400">
-                                <li class="flex gap-2"><i class="fas fa-caret-right text-secondary mt-0.5"></i> <span>Facilitated professional interactions with entrepreneurs and corporate leaders.</span></li>
-                                <li class="flex gap-2"><i class="fas fa-caret-right text-secondary mt-0.5"></i> <span>Created cross-college collaborations to expand student exposure pathways.</span></li>
-                            </ul>
-                        </div>
-
-                        <!-- Tab Content 3: Practice School -->
-                        <div id="tab-content-practice" class="founder-tab-content hidden space-y-4">
-                            <div class="flex justify-between items-start flex-wrap gap-2">
-                                <div>
-                                    <h4 class="text-xl font-extrabold text-white">Program Mentor & Industry Facilitator</h4>
-                                    <p class="text-xs text-secondary font-bold">Practice School Program @ Poona College of Pharmacy</p>
-                                </div>
-                                <span class="bg-primary/30 border border-primary/50 text-blue-200 text-xs px-2.5 py-1 rounded-md font-bold">Experiential Academia</span>
-                            </div>
-                            <p class="text-sm text-slate-300">
-                                Designed structured real-world learning journeys that step completely away from rote memorization.
-                            </p>
-                            <ul class="space-y-2.5 text-xs text-slate-400">
-                                <li class="flex gap-2"><i class="fas fa-caret-right text-secondary mt-0.5"></i> <span>Organized startup visits, hospital observations, and problem-solving projects.</span></li>
-                                <li class="flex gap-2"><i class="fas fa-caret-right text-secondary mt-0.5"></i> <span>Taught Design Thinking applied strictly to pharmacy ecosystem structures.</span></li>
-                            </ul>
-                        </div>
-
-                        <!-- Tab Content 4: FHBN -->
-                        <div id="tab-content-fhbn" class="founder-tab-content hidden space-y-4">
-                            <div class="flex justify-between items-start flex-wrap gap-2">
-                                <div>
-                                    <h4 class="text-xl font-extrabold text-white">Founder & Community Lead</h4>
-                                    <p class="text-xs text-secondary font-bold">FHBN - Firodia Hostel Business Network</p>
-                                </div>
-                                <span class="bg-primary/30 border border-primary/50 text-blue-200 text-xs px-2.5 py-1 rounded-md font-bold">Alumni Network</span>
-                            </div>
-                            <p class="text-sm text-slate-300">
-                                Built an active peer-learning community connecting seasoned business leaders, alumni, and current students.
-                            </p>
-                            <ul class="space-y-2.5 text-xs text-slate-400">
-                                <li class="flex gap-2"><i class="fas fa-caret-right text-secondary mt-0.5"></i> <span>Facilitated continuous learning loops, collaborative problem-solving, and strategic investments.</span></li>
-                            </ul>
-                        </div>
-
+                <!-- Right: Continuous Storytelling Timeline (Intriguing & Deep) -->
+                <div class="lg:col-span-7 space-y-12 relative border-l border-white/10 pl-8 ml-4 sm:ml-6">
+                    
+                    <!-- Timeline Item 1: EFFIPAC -->
+                    <div class="relative group">
+                        <!-- Left dot -->
+                        <div class="absolute -left-[41px] top-1.5 w-6 h-6 rounded-full bg-slate-900 border-4 border-secondary group-hover:bg-secondary transition-colors"></div>
+                        <span class="text-xs text-secondary font-extrabold uppercase tracking-widest block mb-1">2020 – Present</span>
+                        <h4 class="text-2xl font-bold text-white mb-2">Founder & CEO, EFFIPAC (RxCo Private Limited)</h4>
+                        <p class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-3">Healthcare Technology & Medication Automation</p>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">
+                            Pioneered indigenous pharmacy automation and medication management solutions, validated within dynamic hospital pilots and built from scratch under rigorous design thinking frameworks.
+                        </p>
+                        <ul class="space-y-2.5 text-xs text-slate-400">
+                            <li class="flex gap-2"><i class="fas fa-circle text-[6px] text-secondary mt-1.5"></i> <span>Mentored and trained <strong>25+ interns</strong> across product design, operations, marketing, and business execution.</span></li>
+                            <li class="flex gap-2"><i class="fas fa-circle text-[6px] text-secondary mt-1.5"></i> <span>Raised <strong>₹13 Lakhs</strong> in government innovation grants and selected under prestigious <strong>Amrit Grand Challenge</strong>.</span></li>
+                        </ul>
                     </div>
+
+                    <!-- Timeline Item 2: IPA-SF Pune -->
+                    <div class="relative group">
+                        <div class="absolute -left-[41px] top-1.5 w-6 h-6 rounded-full bg-slate-900 border-4 border-primary group-hover:bg-primary transition-colors"></div>
+                        <span class="text-xs text-secondary font-extrabold uppercase tracking-widest block mb-1">Student Movement</span>
+                        <h4 class="text-2xl font-bold text-white mb-2">Founder & President, IPA-SF Pune</h4>
+                        <p class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-3">Indian Pharmaceutical Association – Students Forum</p>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">
+                            Conceptualized, launched, and scaled a premier student skill development movement focused completely on leadership, professional growth, and direct exposure to industrial systems.
+                        </p>
+                        <ul class="space-y-2.5 text-xs text-slate-400">
+                            <li class="flex gap-2"><i class="fas fa-circle text-[6px] text-primary mt-1.5"></i> <span>Facilitated continuous interaction loops between students, entrepreneurs, and key corporate heads.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Timeline Item 3: Practice School -->
+                    <div class="relative group">
+                        <div class="absolute -left-[41px] top-1.5 w-6 h-6 rounded-full bg-slate-900 border-4 border-secondary group-hover:bg-secondary transition-colors"></div>
+                        <span class="text-xs text-secondary font-extrabold uppercase tracking-widest block mb-1">Academic Innovation</span>
+                        <h4 class="text-2xl font-bold text-white mb-2">Program Mentor & Facilitator, Practice School Program</h4>
+                        <p class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-3">Poona College of Pharmacy</p>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">
+                            Designed structured real-world learning journeys that step completely away from rote memorization. Orchestrated startup visits, hospital observations, and problem-solving projects.
+                        </p>
+                        <ul class="space-y-2.5 text-xs text-slate-400">
+                            <li class="flex gap-2"><i class="fas fa-circle text-[6px] text-secondary mt-1.5"></i> <span>Facilitated the execution of <strong>50+ workshops</strong> nationwide, delivering hands-on Design Thinking training.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Timeline Item 4: FHBN -->
+                    <div class="relative group">
+                        <div class="absolute -left-[41px] top-1.5 w-6 h-6 rounded-full bg-slate-900 border-4 border-primary group-hover:bg-primary transition-colors"></div>
+                        <span class="text-xs text-secondary font-extrabold uppercase tracking-widest block mb-1">Peer & Professional Networking</span>
+                        <h4 class="text-2xl font-bold text-white mb-2">Founder & Community Lead, FHBN</h4>
+                        <p class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-3">Firodia Hostel Business Network</p>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">
+                            Created and curated an active business and professional community that successfully bridges alumni leaders and current students to facilitate mentoring, continuous learning, and startup mentorship.
+                        </p>
+                    </div>
+
                 </div>
 
             </div>
 
-            <div id="cover-letter-modal" class="hidden mt-12 bg-white text-slate-900 rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-2xl relative">
+            <!-- Philosophy Statement Modal Box -->
+            <div id="cover-letter-modal" class="hidden mt-16 bg-white text-slate-900 rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-2xl relative">
                 <button onclick="toggleCoverLetter()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600 focus:outline-none" aria-label="Close">
                     <i class="fas fa-times text-2xl"></i>
                 </button>
@@ -460,21 +363,27 @@
                     </div>
                     
                     <div class="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
-                        <p class="font-bold text-slate-900">Dear Hiring Manager, partners, and Institutional Leaders,</p>
-                        <p>
-                            I am writing to express my interest in opportunities focused on skill development, innovation, entrepreneurship education, youth leadership, and industry-academia collaboration.
-                        </p>
-                        <p>
-                            Over the last decade, my work has revolved around one central mission: <strong>Helping young people become highly competent individuals who succeed on merit rather than settling for mediocrity.</strong>
-                        </p>
-                        <p>
+                        <p class="font-bold text-slate-950 text-lg leading-relaxed">
                             While my formal education is in healthcare and pharmacy, my career journey has evolved into building ecosystems that help students learn through real-world exposure, problem-solving, internships, innovation projects, and peer-to-peer learning.
                         </p>
                         <p>
-                            Through my work at IPA-SF Pune, Poona College of PCP, FHBN, and Effipac, I have guided countless students from theory to high-value execution. I would welcome the opportunity to scale this exact architecture with you.
+                            As Founder of the Indian Pharmaceutical Association Students Forum (IPA-SF) Pune, I created a platform dedicated to student growth and professional development. Through this initiative, I facilitated internships, leadership opportunities, innovation programs, industry interactions, and mentoring initiatives for hundreds of students.
                         </p>
-                        <p class="font-semibold text-slate-900 pt-4">Sincerely,</p>
-                        <p class="font-bold text-primary">Dr. Niiraj K. Bafna</p>
+                        <p>
+                            Through my startup Effipac, I recruited, trained, and mentored more than 25 interns across technical, design, marketing, and business functions, providing practical exposure rarely available within traditional academic systems.
+                        </p>
+                        <p>
+                            I have personally conducted over 50 workshops and sessions on Design Thinking, Innovation, Entrepreneurship, Problem Solving, Career Development, and Future Skills across colleges, student organizations, and innovation ecosystems.
+                        </p>
+                        <p>
+                            Additionally, I played a key role in the Practice School Program at Poona College of Pharmacy, where students underwent immersive industry exposure through startup visits, hospital visits, patient-centric healthcare observations, problem-solving projects, design thinking workshops, and final demonstration presentations.
+                        </p>
+                        <p>
+                            Beyond academia, I also run FHBN (Firodia Hostel Business Network), an alumni-driven community that promotes peer learning, mentorship, collaboration, problem-solving, and entrepreneurial growth among students and professionals.
+                        </p>
+                        <p class="font-bold text-slate-900">
+                            My long-term vision is to build systems and platforms that enable Indian youth to become globally competent, industry-ready, and capable of creating meaningful impact.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -482,6 +391,7 @@
         </div>
     </section>
 
+    <!-- Program Curriculum Section -->
     <section id="program" class="py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
@@ -558,7 +468,7 @@
                         </li>
                         <li class="flex items-start gap-2.5 text-slate-700">
                             <span class="text-secondary mt-1"><i class="fas fa-check-circle"></i></span>
-                            <span>User Discovery Interviews & Feedback loops</span>
+                            <span>User Discovery Interviews & Feedback</span>
                         </li>
                     </ul>
                 </div>
@@ -636,67 +546,88 @@
         </div>
     </section>
 
-    <section id="ecosystem" class="py-24 bg-slate-900 text-white overflow-hidden relative">
-        <div class="absolute -right-20 -top-20 w-[400px] h-[400px] bg-primary/10 rounded-full blur-3xl"></div>
-        <div class="absolute -left-20 -bottom-20 w-[400px] h-[400px] bg-secondary/10 rounded-full blur-3xl"></div>
+    <!-- The 3-Stage Ecosystem (Classy Vertical Alignment) -->
+    <section id="ecosystem" class="py-24 bg-slate-900 text-white relative">
+        <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]"></div>
         
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
             
-            <div class="text-center max-w-3xl mx-auto mb-20">
+            <div class="text-center max-w-2xl mx-auto mb-20">
                 <span class="text-xs font-bold text-secondary tracking-widest uppercase block mb-2">Systemic Lifelong Support</span>
                 <h2 class="text-3xl sm:text-4xl font-extrabold">The Three-Stage OpenUp Ecosystem</h2>
-                <p class="text-slate-400 mt-2">Going way beyond a standard workshop to build a long-term professional platform.</p>
+                <p class="text-slate-400 mt-2">A long-term professional development platform bridging education and career progression.</p>
             </div>
 
-            <!-- Stages grid -->
-            <div class="grid lg:grid-cols-3 gap-8">
+            <!-- Vertical Timeline Structure -->
+            <div class="relative border-l border-white/10 pl-8 md:pl-12 space-y-16 ml-4 sm:ml-8">
                 
-                <!-- Stage 1 Card -->
-                <div class="bg-white/5 border border-white/10 rounded-3xl p-8 relative overflow-hidden hover:border-secondary transition-colors">
-                    <div class="absolute -right-12 -bottom-12 w-32 h-32 bg-primary/10 rounded-full blur-xl"></div>
-                    <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center font-extrabold text-lg text-white mb-6">01</div>
-                    <h3 class="text-2xl font-bold text-white mb-3">Leadership Program</h3>
-                    <p class="text-sm text-slate-300 leading-relaxed">
-                        A 6-week experiential learning phase setting up base fundamentals in Design Thinking, professional communications, and real productivity tools.
-                    </p>
-                    <div class="mt-6 border-t border-white/10 pt-4">
-                        <span class="text-xs text-secondary font-bold uppercase tracking-wider block">Outcome Goal:</span>
-                        <span class="text-xs text-slate-400 block mt-1">Receive authenticated OpenUp Fellow ID on completion.</span>
+                <!-- Stage 1 -->
+                <div class="relative group">
+                    <!-- Dot -->
+                    <div class="absolute -left-[45px] md:-left-[61px] top-1.5 w-8 h-8 rounded-full bg-slate-950 border-4 border-secondary flex items-center justify-center text-xs font-bold text-white shadow-md">
+                        01
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <h3 class="text-2xl font-bold text-white flex items-center gap-3">
+                            Stage 1: Leadership Program
+                        </h3>
+                        <p class="text-slate-300 text-base leading-relaxed">
+                            A 6-week experiential learning program that prepares students with leadership, innovation, communication, AI, and industry-ready skills.
+                        </p>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/5 rounded-md border border-white/10">
+                            <span class="w-1.5 h-1.5 bg-secondary rounded-full animate-pulse"></span>
+                            <span class="text-xs font-bold text-slate-300">Outcome Goal: Receive authenticated OpenUp Fellow ID on completion</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Stage 2 Card -->
-                <div class="bg-white/5 border border-white/10 rounded-3xl p-8 relative overflow-hidden hover:border-secondary transition-colors">
-                    <div class="absolute -right-12 -bottom-12 w-32 h-32 bg-primary/10 rounded-full blur-xl"></div>
-                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center font-extrabold text-lg text-white mb-6">02</div>
-                    <h3 class="text-2xl font-bold text-white mb-3">Industry Fellowship</h3>
-                    <p class="text-sm text-slate-300 leading-relaxed">
-                        Selected fellows immediately apply for high-value structured industry fellowships with leading hospitals, pharma houses, startups, and CROs.
-                    </p>
-                    <div class="mt-6 border-t border-white/10 pt-4">
-                        <span class="text-xs text-secondary font-bold uppercase tracking-wider block">Outcome Goal:</span>
-                        <span class="text-xs text-slate-400 block mt-1">Work on live industry challenges with co-mentorship.</span>
+                <!-- Stage 2 -->
+                <div class="relative group">
+                    <div class="absolute -left-[45px] md:-left-[61px] top-1.5 w-8 h-8 rounded-full bg-slate-950 border-4 border-primary flex items-center justify-center text-xs font-bold text-white shadow-md">
+                        02
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <h3 class="text-2xl font-bold text-white flex items-center gap-3">
+                            Stage 2: Industry Fellowship
+                        </h3>
+                        <p class="text-slate-300 text-base leading-relaxed">
+                            Selected fellows immediately apply for high-value structured industry fellowships with leading hospitals, pharma houses, startups, and CROs, working on real deliverables with joint industry mentorship.
+                        </p>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/5 rounded-md border border-white/10">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                            <span class="text-xs font-bold text-slate-300">Outcome Goal: Co-mentored projects on live institutional opportunities</span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Stage 3 -->
-                <div class="bg-white/5 border border-white/10 rounded-3xl p-8 relative overflow-hidden hover:border-secondary transition-colors">
-                    <div class="absolute -right-12 -bottom-12 w-32 h-32 bg-primary/10 rounded-full blur-xl"></div>
-                    <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center font-extrabold text-lg text-white mb-6">03</div>
-                    <h3 class="text-2xl font-bold text-white mb-3">Alumni Network</h3>
-                    <p class="text-sm text-slate-300 leading-relaxed">
-                        Access a dedicated community of professional peers, continuously exchanging high-value internships, mentoring, and updates.
-                    </p>
-                    <div class="mt-6 border-t border-white/10 pt-4">
-                        <span class="text-xs text-secondary font-bold uppercase tracking-wider block">Outcome Goal:</span>
-                        <span class="text-xs text-slate-400 block mt-1">Direct connect loops with active industry heads.</span>
+                <div class="relative group">
+                    <div class="absolute -left-[45px] md:-left-[61px] top-1.5 w-8 h-8 rounded-full bg-slate-950 border-4 border-secondary flex items-center justify-center text-xs font-bold text-white shadow-md">
+                        03
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <h3 class="text-2xl font-bold text-white flex items-center gap-3">
+                            Stage 3: Alumni & Career Network
+                        </h3>
+                        <p class="text-slate-300 text-base leading-relaxed">
+                            Access a dedicated community of professional peers, continuously exchanging internship pathways, direct mentor guidance, innovation challenges, and continuous lifelong learning loops.
+                        </p>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/5 rounded-md border border-white/10">
+                            <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span>
+                            <span class="text-xs font-bold text-slate-300">Outcome Goal: Dedicated career channels & continuous upskilling</span>
+                        </div>
                     </div>
                 </div>
 
             </div>
+
         </div>
     </section>
 
+    <!-- Toolkit & Outcomes -->
     <section class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-12 gap-16 items-center">
@@ -705,7 +636,7 @@
                 <div class="lg:col-span-6 space-y-6">
                     <h2 class="text-xs font-bold text-primary tracking-widest uppercase">The Toolkit</h2>
                     <h3 class="text-3xl font-extrabold text-slate-900 leading-tight">Every Student Deliverable</h3>
-                    <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                    <p class="text-slate-600 leading-relaxed">
                         We don't just provide certificates. Every single participant steps out with a structured, verified digital portfolio ready to be shown to stakeholders:
                     </p>
 
@@ -737,7 +668,7 @@
                     </div>
                 </div>
 
-                <!-- Right: High-impact outcome card -->
+                <!-- Right: Measurable Outcomes -->
                 <div class="lg:col-span-6 bg-slate-50 rounded-3xl p-8 border border-slate-100 shadow-sm space-y-6">
                     <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-2">
                         <i class="fas fa-bullseye text-secondary"></i> Measurable Outcomes
@@ -775,12 +706,13 @@
         </div>
     </section>
 
+    <!-- Why Colleges & Students Partner -->
     <section id="benefits" class="py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-12">
                 
                 <!-- Colleges Choice Card -->
-                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm">
                     <div class="w-12 h-12 bg-blue-50 text-primary rounded-xl flex items-center justify-center text-xl mb-6">
                         <i class="fas fa-university"></i>
                     </div>
@@ -806,7 +738,7 @@
                 </div>
 
                 <!-- Students Choice Card -->
-                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm">
                     <div class="w-12 h-12 bg-sky-50 text-secondary rounded-xl flex items-center justify-center text-xl mb-6">
                         <i class="fas fa-user-graduate"></i>
                     </div>
@@ -835,24 +767,23 @@
         </div>
     </section>
 
-    <section id="apply" class="py-24 bg-gradient-to-br from-darkNavy via-primary to-blue-900 text-white text-center relative overflow-hidden">
-        <!-- SVG Pattern backdrop -->
+    <!-- Pitching Contact Form Section -->
+    <section id="contact" class="py-24 bg-gradient-to-br from-darkNavy via-primary to-blue-900 text-white text-center relative overflow-hidden">
         <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]"></div>
         
         <div class="max-w-4xl mx-auto px-4 relative z-10">
-            <span class="text-xs font-bold text-secondary tracking-widest uppercase block mb-3">Begin Your Journey Today</span>
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+            <span class="text-xs font-bold text-secondary tracking-widest uppercase block mb-3">Initiate Collaboration</span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold mb-6 leading-tight">
                 Empower Indian Youth to <br>Become Globally Competent
             </h2>
             <p class="text-blue-100/90 text-sm sm:text-base max-w-2xl mx-auto mb-10 leading-relaxed">
-                Whether you are a College Principal seeking a placement enhancer, or a Pharmacy student eager to stand out by sheer merit—OpenUp is your starting point.
+                Whether you represent a college/institution seeking to bring this curriculum on campus, or an industry partner looking to host elite fellows—let's build.
             </p>
 
             <div class="bg-white/5 border border-white/10 rounded-3xl p-8 sm:p-10 backdrop-blur-md max-w-2xl mx-auto">
-                <h3 class="text-xl sm:text-2xl font-bold mb-2">Apply / Propose Partnership</h3>
-                <p class="text-xs text-blue-200 mb-6">Let's build long-term, capable networks together.</p>
+                <h3 class="text-xl sm:text-2xl font-bold mb-2">Propose a Partnership</h3>
+                <p class="text-xs text-blue-200 mb-6">Let's discuss long-term capability building.</p>
                 
-                <!-- Simple Touch friendly form action -->
                 <form onsubmit="handleFormSubmission(event)" class="space-y-4 text-left">
                     <div class="grid sm:grid-cols-2 gap-4">
                         <div>
@@ -867,19 +798,24 @@
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-wider text-blue-200 mb-1">I am representing a...</label>
                         <select required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-secondary [color-scheme:dark]">
-                            <option value="student">Student looking to join</option>
                             <option value="college">College/Institution looking to host</option>
-                            <option value="industry">Industry Partner / Mentor</option>
+                            <option value="industry">Industry Partner / Fellowship Mentor</option>
+                            <option value="other">Other Collaboration / Skill Ecosystem</option>
                         </select>
                     </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-blue-200 mb-1">How can we partner?</label>
+                        <textarea required rows="3" placeholder="Tell us briefly about your institution or organization's goals..." class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-secondary"></textarea>
+                    </div>
                     <button type="submit" class="w-full bg-secondary hover:bg-sky-400 text-white font-extrabold py-3.5 rounded-xl text-sm transition-all shadow-md mt-2">
-                        Submit Enquiry
+                        Submit Inquiry
                     </button>
                 </form>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="bg-slate-950 text-slate-400 py-16 border-t border-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-12 items-center">
             
@@ -916,34 +852,7 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Simple interactive Tabs Switcher for Dr. Niiraj's Experience Profile
-        function switchFounderTab(tabId) {
-            // Hide all tab content
-            const contents = document.querySelectorAll('.founder-tab-content');
-            contents.forEach(content => content.classList.add('hidden'));
-
-            // Remove active classes from all tab buttons
-            const buttons = document.querySelectorAll('.founder-tab-btn');
-            buttons.forEach(btn => {
-                btn.classList.remove('bg-secondary', 'text-white');
-                btn.classList.add('bg-white/5', 'text-slate-300');
-            });
-
-            // Show selected tab content
-            const activeContent = document.getElementById(`tab-content-${tabId}`);
-            if (activeContent) {
-                activeContent.classList.remove('hidden');
-            }
-
-            // Set clicked button to active
-            const activeBtn = document.getElementById(`tab-btn-${tabId}`);
-            if (activeBtn) {
-                activeBtn.classList.remove('bg-white/5', 'text-slate-300');
-                activeBtn.classList.add('bg-secondary', 'text-white');
-            }
-        }
-
-        // Toggle visibility of the cover letter / executive statement
+        // Toggle visibility of the cover letter / philosophy statement
         function toggleCoverLetter() {
             const element = document.getElementById('cover-letter-modal');
             if (element.classList.contains('hidden')) {
@@ -963,7 +872,7 @@
             toast.innerHTML = `
                 <i class="fas fa-check-circle text-secondary text-xl"></i>
                 <div>
-                    <p class="font-bold text-sm">Application Sent!</p>
+                    <p class="font-bold text-sm">Inquiry Received!</p>
                     <p class="text-xs text-slate-400">Dr. Niiraj or team will connect with you soon.</p>
                 </div>
             `;
